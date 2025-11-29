@@ -1,0 +1,23 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "project": {
+    "name": "travel-application-backend"
+  },
+  "services": {
+    "api": {
+      "name": "api",
+      "startCommand": "npm start",
+      "envVars": {
+        "PORT": {
+          "value": "3000"
+        },
+        "CORS_ORIGIN": {
+          "value": "*"
+        },
+        "CHAT_API_URL": {
+          "value": ""
+        }
+      }
+    }
+  }
+}

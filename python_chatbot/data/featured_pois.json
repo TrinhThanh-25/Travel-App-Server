@@ -1,0 +1,76 @@
+{
+  "Hồ Chí Minh": [
+    {
+      "name": "Nhà thờ Đức Bà Sài Gòn",
+      "category": "attraction",
+      "lat": 10.7797,
+      "lon": 106.6990,
+      "avg_cost": 0,
+      "description": "Nhà thờ Công giáo mang kiến trúc Gothic cổ kính, biểu tượng của Sài Gòn.",
+      "image_url": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800"
+    },
+    {
+      "name": "Dinh Độc Lập",
+      "category": "museum",
+      "lat": 10.7769,
+      "lon": 106.6952,
+      "avg_cost": 40000,
+      "description": "Di tích lịch sử quan trọng, nơi diễn ra sự kiện thống nhất đất nước.",
+      "image_url": "https://images.unsplash.com/photo-1587895891175-6f0c1d2f3f7e?w=800"
+    },
+    {
+      "name": "Chợ Bến Thành",
+      "category": "attraction",
+      "lat": 10.7720,
+      "lon": 106.6981,
+      "avg_cost": 50000,
+      "description": "Khu chợ lớn và sầm uất nhất Sài Gòn, nơi mua sắm và ẩm thực địa phương.",
+      "image_url": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800"
+    },
+    {
+      "name": "Phố đi bộ Nguyễn Huệ",
+      "category": "attraction",
+      "lat": 10.7743,
+      "lon": 106.7035,
+      "avg_cost": 0,
+      "description": "Khu vực đi bộ hiện đại với nhiều hoạt động văn hóa nghệ thuật.",
+      "image_url": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=800"
+    },
+    {
+      "name": "Bảo tàng Chứng tích Chiến tranh",
+      "category": "museum",
+      "lat": 10.7796,
+      "lon": 106.6918,
+      "avg_cost": 40000,
+      "description": "Bảo tàng trưng bày hiện vật về chiến tranh Việt Nam.",
+      "image_url": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+    },
+    {
+      "name": "Công viên Tao Đàn",
+      "category": "park",
+      "lat": 10.7821,
+      "lon": 106.6929,
+      "avg_cost": 0,
+      "description": "Công viên xanh mát giữa lòng thành phố, nơi thư giãn lý tưởng.",
+      "image_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800"
+    },
+    {
+      "name": "Bưu điện Trung tâm Sài Gòn",
+      "category": "attraction",
+      "lat": 10.7798,
+      "lon": 106.6997,
+      "avg_cost": 0,
+      "description": "Công trình kiến trúc Pháp cổ điển đẹp nhất Sài Gòn.",
+      "image_url": "https://images.unsplash.com/photo-1464925257126-6450e871c667?w=800"
+    },
+    {
+      "name": "Bitexco Financial Tower - Saigon Skydeck",
+      "category": "attraction",
+      "lat": 10.7718,
+      "lon": 106.7038,
+      "avg_cost": 200000,
+      "description": "Đài quan sát cao nhất Sài Gòn với tầm nhìn 360 độ.",
+      "image_url": "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=800"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+id,name,description,cost,percent,code,start_date,end_date,expires_at,point_reward,max_uses,per_user_limit
+1,"Free Coffee","Redeem for a free cup",10,0,"",,,,0,,1
+2,"Discount Voucher","10% off",20,0,"",,,,0,,1
+3,"Free Coffee @Entertainment","Một ly cà phê miễn phí",0,100,"FREECOFFEE",,,,0,,1
+4,"10% Off Billiards","Giảm 10% phí billiards",0,10,"BIL10",,,,0,,1
+5,"20% Archery Discount","Giảm 20% CLB bắn cung",0,20,"ARCH20",,,,0,,1
+6,"Zoo Ticket - 15% Off","Giảm 15% vé Thảo Cầm Viên",0,15,"ZOO15",,,,0,,1
+7,"Bowling Coupon","Phiếu giảm Bowling 25%",0,25,"BOWL25",,,,0,,1
+8,"VR Arcade 5%","Giảm 5% khu Arcade & VR",0,5,"VR05",,,,0,,1

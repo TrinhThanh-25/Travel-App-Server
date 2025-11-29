@@ -1,0 +1,44 @@
+{
+  "name": "database-travel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "postinstall": "sh ./scripts/setup-db.sh || true",
+    "seed:js": "node seeds/seed.js",
+    "apply-sql": "node scripts/apply-sql.js",
+    "seed:undo:js": "node seeds/undo.js",
+    "serve-client": "npx http-server client -p 8080",
+    "add-deps": "npm i jsonwebtoken",
+    "migrate": "sqlite3 ./travel_app.db < migrations/schema.sql",
+    "setup-db": "sh ./scripts/setup-db.sh",
+    "test": "NODE_ENV=test mocha --timeout 5000 --recursive test",
+    "import:trips": "node scripts/import_trips.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parse": "^5.6.0",
+    "csv-stringify": "^6.5.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^6.10.0",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.0",
+    "sqlite3": "^5.1.7",
+    "uuid": "^9.0.0",
+    "xss-clean": "^0.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^6.3.3"
+  }
+}

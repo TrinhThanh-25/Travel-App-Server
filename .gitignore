@@ -1,0 +1,47 @@
+node_modules/
+.env
+*.sqlite
+*.db
+.vscode/
+dist/
+.venv/
+
+# OS / editors
+.DS_Store
+.idea/
+.history/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env variants (ignore local overrides)
+.env.local
+.env.*.local
+
+# Database files (common extensions)
+*.sqlite3
+!travel_app.template.db
+
+# Build / coverage
+client/
+coverage/
+.nyc_output/
+
+# Temporary
+tmp/
+*.tgz
+
+# python cache
+__pycache__/
+*.pyc
+
+# GraphML data files
+*.graphml
+hồ_chí_minh_graph.graphml
+
+# Ignore Python virtual environment in python_chatbot
+python_chatbot/venv/
+

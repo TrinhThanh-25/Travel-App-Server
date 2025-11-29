@@ -1,0 +1,15 @@
+streamlit
+streamlit-folium
+pandas
+python-dotenv
+requests
+scikit-learn
+networkx
+osmnx
+openai>=1.40.0
+fastapi
+uvicorn[standard]
+pydantic
+unidecode
+numpy
+folium

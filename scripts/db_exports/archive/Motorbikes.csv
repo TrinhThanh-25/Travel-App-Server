@@ -1,0 +1,21 @@
+motorbikes/id,motorbikes/name,motorbikes/pricePerHour,motorbikes/available,motorbikes/imageUrl,motorbikes/brakeType,motorbikes/power,motorbikes/year,motorbikes/engineVolume,motorbikes/licenseRequired,motorbikes/model3dUrl
+bike_001,Honda Wave Alpha,6250,TRUE,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStuH45s1jMhLhncR7206PBoaq8G9OTstamNQ&s,Drum/Drum,6.1,2023,110cc,1,/models/hellcat.glb
+bike_002,Honda Vision,7300,TRUE,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRasaWU5jNmzVgfww06kUrxCzTGWnX0IAWoRg&s,Combi Brake (CBS),6.6,2023,110cc,1,https://firebasestorage.googleapis.com/v0/b/travel-application-c9d52.appspot.com/o/bike.glb?alt=media&token=f5e1c347-2a77-4359-99b3-28e57344b43c
+bike_003,Yamaha Sirius,6250,TRUE,https://yamaha-motor.com.vn/wp/wp-content/uploads/2024/02/Sirius-Fi-RC-Mat-Silver-004-768x645.png,Drum/Drum,6.4,2023,115cc,1,
+bike_004,Honda Future 125,7300,TRUE,https://headhongdac.com/upload/sanpham/large/future-125-fi-1706845149-45fcee.jpg,Disc/Drum,7.1,2023,125cc,1,
+bike_005,Honda Lead 125,8350,TRUE,https://vcdn1-vnexpress.vnecdn.net/2024/09/07/2-8823-1725675608.png?w=680&h=0&q=100&dpr=2&fit=crop&s=Sv58kN-1MRmHTxiHG888XQ,Combi Brake (CBS),8.2,2023,125cc,1,
+bike_006,Honda Air Blade 125,8350,TRUE,https://images2.thanhnien.vn/528068263637045248/2024/6/2/gray-red-160-2-1717299790228679631865.jpg,Disc/Drum (CBS),8.7,2023,125cc,1,
+bike_007,Honda SH Mode 125,10400,TRUE,https://kimdiep.com.vn/upload/file_bai_viet/images/RI9HA03RctDKIEfIAtep.png,ABS/Drum,8.2,2023,125cc,1,
+bike_008,Yamaha Exciter 155 VVA,10400,TRUE,https://yamaha-motor.com.vn/wp/wp-content/uploads/2023/09/Exciter-155-VVA-GP-ABS_004-768x645.png,Disc/Disc (ABS on some),13.2,2023,155cc,1,
+bike_009,Honda Winner X,10400,TRUE,https://hondaducdung.com/files/product/winner-x-moi-pt9pcep1.jpg,ABS/Disc (on some),11.5,2023,150cc,1,
+bike_010,Piaggio Vespa Sprint,16700,TRUE,https://piaggioxuancau.com/wp-content/uploads/2024/05/vespa-sprint-125-piaggio-xuan-cau-19-1-900x600.webp,ABS/Drum,9.6,2022,125cc,1,
+bike_011,Honda Super Cub C125,9400,TRUE,https://cdn.honda.com.vn/motorbike-versions/August2024/PVQlDvkZorRuHGRDA0Rs.png,ABS/Drum,7.2,2023,125cc,1,
+bike_012,BMW R 1300 GS,2.3,TRUE,https://media.vov.vn/sites/default/files/styles/large/public/2024-07/edc2006141b5e3ebbaa4.jpg,ABS/Disc,107,2024,1300cc,2,
+bike_013,Yamaha MT-07,33300,TRUE,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq5a89IaGFRQcWWjdPfKhi1JloXn0gpxosVA&s,ABS/Disc,54.0,2023,689cc,2,
+bike_014,Harley-Davidson Iron 883,11.12,TRUE,https://d2bywgumb0o70j.cloudfront.net/2021/01/20/220b7566e1ba42e4bafe043cb3d6846b_4a03e718d1581c31.jpg,ABS/Disc,38.8,2022,883cc,2,
+bike_015,Kawasaki Ninja 400,20800,TRUE,https://i2-vnexpress.vnecdn.net/2023/04/07/e8ba9ee1879b49caaa0ebc7fac65a048jpg-1680851945.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=8zrnJcY0RVkwKsW8erCnHA,ABS/Disc,33.4,2023,399cc,2,
+bike_016,Royal Enfield Meteor 350,14600,TRUE,https://i1-vnexpress.vnecdn.net/2023/04/12/Screenshot-22.jpg?w=750&h=0&q=100&dpr=1&fit=crop&s=t1ltb1QJhYumbGmmbLvAWQ,ABS/Disc,14.9,2023,349cc,2,
+bike_017,Ducati Panigale V4,21.11,TRUE,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI9wWH11uq9D0SmfQisJxVFBR9FNnVS-7llg&s,ABS/Disc,157.5,2023,1103cc,2,
+bike_018,KTM 390 Duke,16700,TRUE,https://i1-vnexpress.vnecdn.net/2023/04/12/Screenshot-13.jpg?w=750&h=0&q=100&dpr=1&fit=crop&s=lmUy08Ex7q0j1X47hCrYfw,ABS/Disc,33.0,2024,399cc,2,
+bike_019,Triumph Bonneville T120,1.9,TRUE,https://www.triumph-motorcycles.com.vn/data/news/20/_color/t120-den-bong-min.jpg,ABS/Disc,59.0,2023,1200cc,2,
+bike_020,Honda CB500X,18750,TRUE,https://i2-vnexpress.vnecdn.net/2023/04/13/HondaCB500X20224jpg-1681355635.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=0gLK2CrJXqN4m6U0q2hZgA,ABS/Disc,35.0,2023,471cc,2,
