@@ -83,11 +83,15 @@ app.use(express.json({ limit: '10kb' }));
 app.use(helmet());
 
 // simple global rate limiter (helps against basic abuse)
-const globalLimiter = rateLimit({ windowMs: 15 * 60 * 1000, // 15 minutes
-	max: 200, // limit each IP to 200 requests per window
+// Relax or disable in local/dev to avoid "Too many requests" when testing.
+// Keep it simple: very high per-IP cap and short window, still prevents abuse bursts.
+const limiterOptions = {
+	windowMs: 60 * 1000, // 1 minute
+	max: 10000, // allow up to 10k req/min per IP (sufficient for local dev)
 	standardHeaders: true,
 	legacyHeaders: false,
-});
+};
+const globalLimiter = rateLimit(limiterOptions);
 app.use(globalLimiter);
 
 // basic request sanitization (escape HTML-sensitive characters)
