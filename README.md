@@ -4,33 +4,8 @@ Tệp này mô tả cách thiết lập sau khi clone repo và liệt kê các A
 
 ---
 
-## 1) Thiết lập (sau khi clone)
-
-1. Clone và chuyển vào thư mục dự án
-
-```bash
-
-git clone <repo-url>
-cd "Database Travel"
-```
-
-2. Sao chép file môi trường mẫu và chỉnh sửa nếu cần
-
-```bash
-
-cp .env.example .env
-# sửa DB_PATH, PORT, CORS_ORIGIN, JWT_SECRET nếu cần
-```
-
-3. Cài đặt dependencies và chạy server
-
-```bash
-
-```bash
-npm install
-npm run dev    # phát triển (nodemon)
-# hoặc
-npm start      # chạy production
+#
+ý 
 
 ```
 ```

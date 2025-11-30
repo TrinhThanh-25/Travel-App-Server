@@ -1,5 +1,15 @@
 import db from "../db/connect.js";
 
+export const getUserProfileById = (req, res) => {
+  const userId = req.params.id;
+  if (!userId) return res.status(400).json({ error: 'user id required' });
+  db.get("SELECT id, username, email, total_point, avatar_url, dob, gender, phone FROM users WHERE id = ?", [userId], (err, row) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (!row) return res.status(404).json({ error: "User not found" });
+    res.json(row);
+  });
+};
+
 export const getAllUsers = (req, res) => {
   db.all("SELECT id, username, email, total_point, avatar_url, dob, gender, phone FROM users", [], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });

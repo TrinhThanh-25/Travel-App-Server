@@ -22,6 +22,7 @@ router.post("/complete", validateSchema(completeChallengeSchema), handlerOrNotIm
 // user profile endpoints (use :id until auth is implemented)
 // Use authenticated "me" endpoints instead of path-based user ids
 router.get("/me", authenticateJWT, handlerOrNotImplemented('getUserProfile'));
+router.get("/:id", handlerOrNotImplemented('getUserProfileById'));
 // PATCH /me for safe, partial profile updates
 router.patch("/me", authenticateJWT, validateSchema(updateUserProfileSchema), handlerOrNotImplemented('updateUserProfile'));
 router.post("/me/avatar", authenticateJWT, validateSchema(avatarSchema), handlerOrNotImplemented('updateUserAvatar'));
