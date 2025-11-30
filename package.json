@@ -22,6 +22,7 @@
     "db:ensure-fav-trips": "node scripts/create_user_favorite_trips.js"
     ,"auto:restart": "bash scripts/auto_restart.sh",
     "import:core-data": "node scripts/import_locations_reviews_images.js"
+    ,"import:archives": "node scripts/import_archives.js"
   },
   "keywords": [],
   "author": "",
