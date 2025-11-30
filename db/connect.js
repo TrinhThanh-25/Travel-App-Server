@@ -272,6 +272,7 @@ db.serialize(() => {
       status TEXT DEFAULT 'active',
       issued_at TEXT DEFAULT (datetime('now')),
       expires_at TEXT,
+      used_at TEXT,
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
       FOREIGN KEY (reward_id) REFERENCES rewards(id) ON DELETE CASCADE
     )
@@ -368,6 +369,33 @@ db.serialize(() => {
       created_at TEXT DEFAULT (datetime('now')),
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
       FOREIGN KEY (location_id) REFERENCES locations(id) ON DELETE CASCADE
+    )
+  `);
+
+  // Favorite trips linking table
+  db.run(`
+    CREATE TABLE IF NOT EXISTS user_favorite_trips (
+      user_id INTEGER NOT NULL,
+      trip_id INTEGER NOT NULL,
+      PRIMARY KEY (user_id, trip_id),
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE
+    )
+  `);
+  db.run(`CREATE INDEX IF NOT EXISTS idx_user_fav_trips_user ON user_favorite_trips(user_id);`);
+  db.run(`CREATE INDEX IF NOT EXISTS idx_user_fav_trips_trip ON user_favorite_trips(trip_id);`);
+
+  // Trip reviews table (canonical for trip review data)
+  db.run(`
+    CREATE TABLE IF NOT EXISTS trip_reviews (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      user_id INTEGER NOT NULL,
+      trip_id INTEGER NOT NULL,
+      rating INTEGER NOT NULL,
+      comment TEXT,
+      created_at TEXT DEFAULT (datetime('now')),
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE
     )
   `);
 
@@ -523,6 +551,8 @@ async function runMigrations() {
   await ensureColumn('user_reward', 'status', "TEXT DEFAULT 'active'");
   await ensureColumn('user_reward', 'issued_at', 'TEXT');
   await ensureColumn('user_reward', 'expires_at', 'TEXT');
+  // Track when a voucher/reward is actually used (redeemed)
+  await ensureColumn('user_reward', 'used_at', 'TEXT');
 
   // Shops: ensure import-friendly columns exist so archive import can upsert fields
   // Ensure CSV-specific columns (explicit per-index columns matching Shops.csv)
@@ -557,6 +587,7 @@ async function runMigrations() {
   await ensureColumn('trips', 'title', 'TEXT');
   await ensureColumn('trips', 'description', 'TEXT');
   await ensureColumn('trips', 'rating', 'REAL');
+  await ensureColumn('trips', 'review_count', 'INTEGER DEFAULT 0');
   await ensureColumn('trips', 'key_highlight', 'TEXT');
   await ensureColumn('trips', 'estimate_price', 'INTEGER');
   await ensureColumn('trips', 'total_time', 'INTEGER');

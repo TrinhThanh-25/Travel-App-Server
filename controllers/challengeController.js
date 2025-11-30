@@ -110,6 +110,9 @@ export function computeExtendedProgress(challenge, userId, cb) {
     db.get(`SELECT COUNT(*) as cnt FROM user_activity WHERE user_id = ? AND type = 'watch_video'`, [userId], (e,r)=> cb(e, r? r.cnt:0));
   } else if (target === 'reviews_written') {
     db.get(`SELECT COUNT(*) as cnt FROM location_reviews WHERE user_id = ?`, [userId], (e,r)=> cb(e, r? r.cnt:0));
+  } else if (target === 'location_info_reads') {
+    // Count number of distinct location info reads (user_activity type 'location_info_read')
+    db.get(`SELECT COUNT(*) as cnt FROM user_activity WHERE user_id = ? AND type = 'location_info_read'`, [userId], (e,r)=> cb(e, r? r.cnt:0));
   } else if (target === 'distance_meters') {
     // Sum meters from distance_session meta
     db.get(`SELECT COALESCE(SUM(CAST(json_extract(meta_json,'$.meters') AS INTEGER)),0) as meters FROM user_activity WHERE user_id = ? AND type = 'distance_session'`,[userId],(e,r)=> cb(e, r? r.meters:0));
@@ -118,6 +121,13 @@ export function computeExtendedProgress(challenge, userId, cb) {
     db.get(`SELECT COUNT(DISTINCT json_extract(meta_json,'$.item_key')) as cnt FROM user_activity WHERE user_id = ? AND type = 'collect_item' AND json_extract(meta_json,'$.item_key') LIKE ?`, [userId, `${prefix}%`], (e,r)=> cb(e, r? r.cnt:0));
   } else if (target === 'quiz_correct') {
     db.get(`SELECT COUNT(*) as cnt FROM user_activity WHERE user_id = ? AND type = 'quiz_correct'`, [userId], (e,r)=> cb(e, r? r.cnt:0));
+  } else if (target === 'reward_redemptions') {
+    // Prefer user_activity records type 'reward_redeemed'; fallback to user_reward rows with status 'redeemed'
+    db.get(`SELECT COUNT(*) as cnt FROM user_activity WHERE user_id = ? AND type = 'reward_redeemed'`, [userId], (e,r)=> {
+      if (e) return cb(e);
+      if (r && r.cnt > 0) return cb(null, r.cnt);
+      db.get(`SELECT COUNT(*) as cnt FROM user_reward WHERE user_id = ? AND status = 'redeemed'`, [userId], (e2,r2)=> cb(e2, r2? r2.cnt:0));
+    });
   } else if (target === 'invites_completed') {
     db.get(`SELECT COUNT(*) as cnt FROM user_activity WHERE user_id = ? AND type = 'invite_completed'`, [userId], (e,r)=> cb(e, r? r.cnt:0));
   } else if (target === 'shares') {
@@ -227,7 +237,8 @@ export const completeChallenge = (req, res) => {
             db.get(`SELECT id FROM user_reward WHERE user_id = ? AND reward_id = ?`, [user_id, rw.id], (chkErr, existsRow) => {
               if (chkErr) return res.status(500).json({ error: chkErr.message });
               if (existsRow) { issued.push({ reward_id: rw.id, code: null, status: 'already_has' }); return issueNext(idx+1); }
-              const code = (rw.code && String(rw.code).trim()) ? rw.code : crypto.randomBytes(6).toString('hex').toUpperCase();
+              // Always generate a fresh per-user code; reward base code is ignored.
+              const code = crypto.randomBytes(6).toString('hex').toUpperCase();
               db.run(`INSERT INTO user_reward (user_id, reward_id, code, status, expires_at) VALUES (?,?,?,?,?)`, [user_id, rw.id, code, 'active', rw.expires_at || null], function (insErr) {
                 if (insErr) return res.status(500).json({ error: insErr.message });
                 issued.push({ reward_id: rw.id, code, status: 'issued' });

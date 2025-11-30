@@ -4,13 +4,13 @@ export const getAllLocations = (req, res) => {
   const query = req.query.q || '';
   const category = req.query.category || '';
   const type = req.query.type || '';
-  const limit = parseInt(req.query.limit) || 20;
-  const offset = parseInt(req.query.offset) || 0;
   const sort_by = req.query.sort_by || 'name-asc';
+  const id = req.params.id || null;
   let [column, direction] = sort_by.split('-');
+  const userId = (req.user && req.user.id) ? Number(req.user.id) : -1; // -1 means no favorites
 
   // Chỉ cho phép sort các cột an toàn
-  const allowedColumns = ["name", "price", "created_at", "rating","review_count"];
+  const allowedColumns = ["name", "price", "rating","review_count"];
   if (!allowedColumns.includes(column)) column = "name";
   direction = direction === "desc" ? "DESC" : "ASC";
 
@@ -51,23 +51,23 @@ export const getAllLocations = (req, res) => {
   const whereClause = conditions.length > 0 ? "WHERE " + conditions.join(" AND ") : "";
 
   const sql = `
-    SELECT *
+    SELECT locations.*,
+      CASE WHEN ufl.location_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
     FROM locations
+    LEFT JOIN user_favorite_locations ufl
+      ON ufl.location_id = locations.id AND ufl.user_id = ?
     ${whereClause}
     ORDER BY ${column} ${direction}
-    LIMIT ? OFFSET ?
   `;
 
-  params.push(limit, offset);
+  // prepend userId for the JOIN condition
+  params = [userId, ...params];
+  
 
   db.all(sql, params, (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
 
-    res.json({
-      data: rows,
-      nextOffset: offset + limit,
-      count: rows.length
-    });
+    res.json(rows);
   });
 };
 
@@ -84,9 +84,16 @@ export const addLocation = (req, res) => {
 
 export const getLocationById = (req, res) => {
   const id = Number(req.params.id);
+  const userId = (req.user && req.user.id) ? Number(req.user.id) : -1;
   if (!id) return res.status(400).json({ error: 'Invalid location id' });
-  const sql = "SELECT * FROM locations WHERE id = ?";
-  db.get(sql, [id], (err, row) => {
+  const sql = `
+    SELECT l.*, CASE WHEN ufl.location_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
+    FROM locations l
+    LEFT JOIN user_favorite_locations ufl
+      ON ufl.location_id = l.id AND ufl.user_id = ?
+    WHERE l.id = ?
+  `;
+  db.get(sql, [userId, id], (err, row) => {
     if (err) return res.status(500).json({ error: err.message });
     if (!row) return res.status(404).json({ error: 'Location not found' });
     res.json(row);
@@ -98,6 +105,7 @@ export const nearbyLocations = (req, res) => {
   const lat = parseFloat(req.query.lat);
   const lon = parseFloat(req.query.lon);
   if (Number.isNaN(lat) || Number.isNaN(lon)) return res.status(400).json({ error: 'lat and lon query params required' });
+  const userId = (req.user && req.user.id) ? Number(req.user.id) : -1;
 
   const radius = parseFloat(req.query.radius) || 5; // km
   const limit = parseInt(req.query.limit) || 20;
@@ -115,8 +123,8 @@ export const nearbyLocations = (req, res) => {
   const distanceExpr = `(
     6371 * acos(
       max(-1, min(1,
-        cos(? * ${DEG2RAD}) * cos(lat * ${DEG2RAD}) * cos((lon * ${DEG2RAD}) - (? * ${DEG2RAD})) +
-        sin(? * ${DEG2RAD}) * sin(lat * ${DEG2RAD})
+        cos(? * ${DEG2RAD}) * cos(latitude * ${DEG2RAD}) * cos((longitude * ${DEG2RAD}) - (? * ${DEG2RAD})) +
+        sin(? * ${DEG2RAD}) * sin(latitude * ${DEG2RAD})
       ))
     )
   )`;
@@ -127,15 +135,18 @@ export const nearbyLocations = (req, res) => {
       ? * (IFNULL(l.rating,0) / 5.0) +
       ? * (CASE WHEN l.distance > ? THEN 0 ELSE (1.0 - (l.distance / ?)) END)
     ) AS score
+    , CASE WHEN ufl.location_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
     FROM (
       SELECT *, ${distanceExpr} AS distance FROM locations
     ) l
+    LEFT JOIN user_favorite_locations ufl
+      ON ufl.location_id = l.id AND ufl.user_id = ?
     ${radius ? 'WHERE l.distance <= ?' : ''}
     ORDER BY score DESC, IFNULL(l.rating,0) DESC, l.distance ASC
     LIMIT ?`;
 
   const params = [lat, lon, lat, // distanceExpr args: ?, ?, ? (lat, lon, lat)
-    w_rating, w_distance, radius, radius];
+    w_rating, w_distance, radius, radius, userId];
 
   if (radius) params.push(radius);
   params.push(limit);
@@ -159,7 +170,13 @@ export const getFavoriteLocations = (req, res) => {
   const userId = req.user && req.user.id;
   if (!userId) return res.status(401).json({ error: 'Unauthorized' });
 
-  const sql = `SELECT l.* FROM locations l INNER JOIN user_favorite_location ufl ON l.id = ufl.location_id WHERE ufl.user_id = ?`;
+  const sql = `
+    SELECT l.*,
+    CASE WHEN ufl.location_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
+    FROM locations l
+    JOIN user_favorite_locations ufl ON l.id = ufl.location_id
+    WHERE ufl.user_id = ?
+  `;
   db.all(sql, [userId], (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(rows);
@@ -172,7 +189,7 @@ export const addFavoriteLocation = (req, res) => {
   if (!userId) return res.status(401).json({ error: 'Unauthorized' });
   if (!locationId) return res.status(400).json({ error: 'Invalid location id' });
 
-  db.run(`INSERT OR IGNORE INTO user_favorite_location (user_id, location_id) VALUES (?, ?)`, [userId, locationId], function (err) {
+  db.run(`INSERT OR IGNORE INTO user_favorite_locations (user_id, location_id) VALUES (?, ?)`, [userId, locationId], function (err) {
     if (err) return res.status(500).json({ error: err.message });
     if (this.changes === 0) {
       return res.status(400).json({ message: '❌ Location already in favorites' });
@@ -187,7 +204,7 @@ export const removeFavoriteLocation = (req, res) => {
   if (!userId) return res.status(401).json({ error: 'Unauthorized' });
   if (!locationId) return res.status(400).json({ error: 'Invalid location id' });
 
-  db.run(`DELETE FROM user_favorite_location WHERE user_id = ? AND location_id = ?`, [userId, locationId], function (err) {
+  db.run(`DELETE FROM user_favorite_locations WHERE user_id = ? AND location_id = ?`, [userId, locationId], function (err) {
     if (err) return res.status(500).json({ error: err.message });
     if (this.changes === 0) {
       return res.status(400).json({ message: '❌ Location not in favorites' });

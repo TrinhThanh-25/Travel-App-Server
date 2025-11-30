@@ -9,9 +9,11 @@ export const listTrips = (req, res) => {
   const offset = parseInt(req.query.offset) || 0;
   const sort = (req.query.sort || 'rating-desc').toLowerCase();
   let [col, dir] = sort.split('-');
-  const allowedCols = ['rating','estimate_price','total_time','title','id'];
+  const allowedCols = ['rating','review_count','estimate_price','total_time','title','id'];
   if (!allowedCols.includes(col)) col = 'rating';
   dir = dir === 'asc' ? 'ASC' : 'DESC';
+
+  const userId = (req.user && req.user.id) ? Number(req.user.id) : -1;
 
   const conditions = [];
   const params = [];
@@ -19,7 +21,16 @@ export const listTrips = (req, res) => {
   if (!Number.isNaN(minRating)) { conditions.push('COALESCE(rating,0) >= ?'); params.push(minRating); }
   if (!Number.isNaN(maxPrice)) { conditions.push('COALESCE(estimate_price,0) <= ?'); params.push(maxPrice); }
   const where = conditions.length ? 'WHERE ' + conditions.join(' AND ') : '';
-  const sql = `SELECT id,title,description,rating,key_highlight,estimate_price,total_time,url_image FROM trips ${where} ORDER BY ${col} ${dir} LIMIT ? OFFSET ?`;
+  const sql = `
+    SELECT t.id,t.title,t.description,t.rating,t.review_count,t.key_highlight,t.estimate_price,t.total_time,t.url_image,
+           CASE WHEN uft.trip_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
+    FROM trips t
+    LEFT JOIN user_favorite_trips uft
+      ON uft.trip_id = t.id AND uft.user_id = ?
+    ${where}
+    ORDER BY ${col} ${dir}
+    LIMIT ? OFFSET ?`;
+  params.unshift(userId);
   params.push(limit, offset);
   db.all(sql, params, (err, rows) => {
     if (err) {
@@ -34,8 +45,13 @@ export const listTrips = (req, res) => {
 export const getTrip = (req, res) => {
   const id = parseInt(req.params.id);
   if (!id) return res.status(400).json({ error: 'Invalid trip id' });
-  const tripSql = 'SELECT id,title,description,rating,key_highlight,estimate_price,total_time,url_image FROM trips WHERE id = ?';
-  db.get(tripSql, [id], (err, trip) => {
+  const userId = (req.user && req.user.id) ? Number(req.user.id) : -1;
+  const tripSql = `SELECT t.id,t.title,t.description,t.rating,t.review_count,t.key_highlight,t.estimate_price,t.total_time,t.url_image,
+                          CASE WHEN uft.trip_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
+                   FROM trips t
+                   LEFT JOIN user_favorite_trips uft ON uft.trip_id = t.id AND uft.user_id = ?
+                   WHERE t.id = ?`;
+  db.get(tripSql, [userId, id], (err, trip) => {
     if (err) return res.status(500).json({ error: err.message });
     if (!trip) return res.status(404).json({ error: 'Trip not found' });
   const locSql = `SELECT tl.location_id, tl.order_index, l.name, l.category, l.type, l.price, l.description, l.latitude, l.longitude, l.address, l.image_url, l.rating, l.review_count
@@ -72,4 +88,44 @@ export const createTrip = (req, res) => res.status(405).json({ error: 'Static da
 export const updateTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip update disabled.' });
 export const deleteTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip delete disabled.' });
 
-export default { listTrips, getTrip, createTrip, updateTrip, deleteTrip };
+// Favorites for trips
+export const getFavoriteTrips = (req, res) => {
+  const userId = req.user && req.user.id;
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  const sql = `
+    SELECT t.*, 1 AS is_favorite
+    FROM trips t
+    JOIN user_favorite_trips uft ON t.id = uft.trip_id
+    WHERE uft.user_id = ?
+    ORDER BY COALESCE(t.rating,0) DESC, t.id ASC`;
+  db.all(sql, [userId], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows);
+  });
+};
+
+export const addFavoriteTrip = (req, res) => {
+  const userId = req.user && req.user.id;
+  const tripId = Number(req.params.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  if (!tripId) return res.status(400).json({ error: 'Invalid trip id' });
+  db.run(`INSERT OR IGNORE INTO user_favorite_trips (user_id, trip_id) VALUES (?, ?)`, [userId, tripId], function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0) return res.status(400).json({ message: '❌ Trip already in favorites' });
+    res.json({ message: '✅ Trip added to favorites' });
+  });
+};
+
+export const removeFavoriteTrip = (req, res) => {
+  const userId = req.user && req.user.id;
+  const tripId = Number(req.params.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  if (!tripId) return res.status(400).json({ error: 'Invalid trip id' });
+  db.run(`DELETE FROM user_favorite_trips WHERE user_id = ? AND trip_id = ?`, [userId, tripId], function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0) return res.status(400).json({ message: '❌ Trip not in favorites' });
+    res.json({ message: '✅ Trip removed from favorites' });
+  });
+};
+
+export default { listTrips, getTrip, createTrip, updateTrip, deleteTrip, getFavoriteTrips, addFavoriteTrip, removeFavoriteTrip };

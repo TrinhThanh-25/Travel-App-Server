@@ -16,7 +16,11 @@
     "migrate": "sqlite3 ./travel_app.db < migrations/schema.sql",
     "setup-db": "sh ./scripts/setup-db.sh",
     "test": "NODE_ENV=test mocha --timeout 5000 --recursive test",
-    "import:trips": "node scripts/import_trips.js"
+    "import:trips": "node scripts/import_trips.js",
+    "import:trip-reviews": "node scripts/import_trip_reviews.js",
+    "db:ensure-fav-trips": "node scripts/create_user_favorite_trips.js"
+    ,"auto:restart": "bash scripts/auto_restart.sh",
+    "import:core-data": "node scripts/import_locations_reviews_images.js"
   },
   "keywords": [],
   "author": "",

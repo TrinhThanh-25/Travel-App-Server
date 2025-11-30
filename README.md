@@ -169,7 +169,29 @@ There is also a Node-based seeder `seeds/seed.js` (useful when you need logic, l
 npm run seed
 ```
 
+### CSV: user_reward (voucher inventory)
+
+Legacy export used only three columns:
+
+```text
+user_id,reward_id,claimed_at
+```
+
+Current schema stores additional lifecycle fields. Recommended CSV header now:
+
+```text
+user_id,reward_id,code,status,obtained_at,issued_at,expires_at,used_at
+```
+
+Import logic (`scripts/import_all.js`) auto-detects which columns are present:
+
+- If only `claimed_at` exists it maps to `obtained_at`.
+- Optional columns (`code,status,issued_at,expires_at,used_at`) are inserted when supplied.
+
+Codes are never stored on the base `rewards` row; each `user_reward` gets its own generated `code` when redeemed or awarded by a challenge.
+
 ## npm scripts
+
 - `npm run dev` — run `nodemon server.js` (development)
 - `npm start` — run `node server.js`
 - `npm run migrate` — run `migrations/schema.sql` against `travel_app.db`
@@ -223,217 +245,110 @@ If anything is unclear or you want me to update the README with screenshots or s
 
 ## API Endpoints
 
-The backend exposes a small REST API under `/api`. All responses are JSON. Below are the currently available endpoints and example request bodies.
+The backend exposes a REST API under `/api`. All responses are JSON.
 
-Base path: `http://localhost:<PORT>/api` (default PORT=5000)
-
-### Locations
- - `/api/locations` (routes/locationRoutes.js)
- - `/api/challenges` (routes/challengeRoutes.js)
- - `/api/users` (routes/userRoutes.js)
- - `/api/rewards` (routes/rewardRoutes.js)
- - `/auth` (routes/authRoutes.js)
-
-### Reviews, Points & Filters (new)
-
-The project now includes support for user reviews, a simple points/transactions ledger, and named filters which can be applied to locations.
-
-- Reviews are stored in the `reviews` table and endpoints are mounted at `/api/reviews`.
-	- POST `/api/reviews` (auth required) — create a review: { location_id, rating, comment }
-	- GET `/api/reviews/location/:locationId` — list reviews for a location
-	- DELETE `/api/reviews/:id` (auth required) — delete a review (owner only)
-
-- Points transactions are stored in the `points_transactions` table and endpoints are mounted at `/api/points`.
-	- POST `/api/points/transactions` (auth required) — record a credit/debit: { points, type, description, user_id? }
-	- GET `/api/points/transactions` (auth required) — list the current user's transactions
-	- GET `/api/points/me` (auth required) — get current user's total points
-
-- Filters and `location_filters` let you tag locations with named filters and are mounted at `/api/filters`.
-	- GET `/api/filters` — list available filters
-	- POST `/api/filters` (auth required) — create a new filter: { name }
-
-These endpoints are simple and intentionally lightweight. Reviews will recompute the associated location's `rating` and `review_count` automatically when created or deleted.
-
-Ghi chú: các route hiện hầu hết là công khai; middleware JWT có sẵn và được áp dụng cho `/auth/me`.
-
-### Auth (mount: /auth)
-
-- POST /auth/register
-	- Body: { username, email, password }
-	- Tạo user mới, trả về { message, userId }
-
-- POST /auth/login
-	- Body: { email, password }
-	- Trả về JWT token và thông tin cơ bản: { token, username, userId, points }
-
-- POST /auth/logout
-	- Stateless: server trả { message }
-
-- GET /auth/me
-	- Yêu cầu header Authorization: Bearer <token>
-	- Trả về thông tin user (id, username, email, total_point, avatar, dob, ...)
-
-### Users (mount: /api/users)
-
-- GET /api/users
-	- Lấy danh sách users (các cột hiển thị: id, username, email, total_point, avatar_url, dob, gender, phone)
-
-- POST /api/users
-	- Body: { username, email, password }
-	- Tạo user mới
-
-- POST /api/users/complete
-	- Body: { user_id, challenge_id }
-	- Ghi nhận user hoàn thành challenge (cộng điểm từ challenges.reward_point và upsert vào user_challenge)
-
-- GET /api/users/:id
-	- Lấy profile user theo id
-
-- POST /api/users/:id
-	- Cập nhật profile: { username, email, avatar_url, dob, gender, phone }
-
-- POST /api/users/:id/avatar
-	- Cập nhật avatar: { avatar_url }
-
-- POST /api/users/:id/password
-	- Đổi mật khẩu: { old_password, new_password }
-
-- GET /api/users/:id/vouchers
-	- Lấy voucher của user (từ bảng user_reward join rewards)
-
-### Locations (mount: /api/locations)
-
-- GET /api/locations
-	- Trả về array các location (toàn bộ cột trong bảng `locations`)
-
-- POST /api/locations
-	- Body: { name, image_url, description, address, city, opening_hours, closing_hours, rating, review_count, qr_code }
-	- Thêm location mới, trả id mới
-
-### Challenges (mount: /api/challenges)
-
-- GET /api/challenges
-	- Trả về list challenges; controller gom tên locations liên quan vào trường `locations` bằng GROUP_CONCAT
-
-- POST /api/challenges
-	- Body: { name, description, start_date, end_date, reward_point, location_ids }
-	- Tạo challenge và (tuỳ chọn) liên kết locations
-
-- POST /api/challenges/:id/join
-	- Body: { user_id }
-	- User join challenge
-
-- POST /api/challenges/:id/complete
-	- Body: { user_id }
-	- Ghi nhận hoàn thành, cộng điểm cho user và cập nhật user_challenge
-
-### Rewards (mount: /api/rewards)
-
-- GET /api/rewards
-	- Trả về tất cả rewards
-
-- GET /api/rewards/catalog?user_id=<id>
-	- Trả về danh sách rewards mà user đủ điểm để đổi (so sánh users.total_point <= rewards.cost)
-
-- POST /api/rewards
-	- Body: { name, start_date, end_date, description, cost, expires_at, point_reward, max_uses, per_user_limit, metadata }
-	- Tạo reward mới
-
-- POST /api/rewards/redeem
-	- Body: { user_id, reward_id }
-	- Quy trình: kiểm tra điểm, trừ điểm, tạo row trong `user_reward` (voucher code), trả về voucher thông tin
-
----
-
-## API Endpoints (hiện trạng)
-
-Dưới đây là danh sách các route đang thực tế được mount trong thư mục `routes/`. Dùng danh sách này để test hoặc kết nối frontend.
-
-Base URL: http://localhost:<PORT> (mặc định PORT = 5000)
-
-Lưu ý chung:
-- Nhiều route yêu cầu authentication (JWT) — xem `/auth` để biết cách lấy token.
-- Một vài route trong `routes/` dùng helper `handlerOrNotImplemented` và sẽ trả 501 nếu handler chưa được cài (được chú thích trong code).
-- Mật khẩu hiện lưu dưới dạng plaintext trong DB (dev only). Cần đổi sang bcrypt trước khi đưa lên production.
-
----
+Base path: `http://localhost:<PORT>` (default PORT = 5000)
 
 Auth (mount: `/auth`)
-- POST `/auth/register` — body: { username, email, password } -> tạo user, trả về message/userId
-- POST `/auth/login` — body: { email, password } -> trả về { token, username, userId, points }
-- POST `/auth/logout` — stateless
-- GET `/auth/me` — requires Authorization: Bearer <token>
-
-Locations (mount: `/api/locations`)
-- GET `/api/locations` — list locations (array)
-- GET `/api/locations/:id` — get single location by id
-- POST `/api/locations` — create location
+- POST `/auth/register` — create user { username, email, password }
+- POST `/auth/login` — login, returns { token, username, userId, points }
+- POST `/auth/logout` — stateless logout
+- GET `/auth/me` — get current user (Authorization: Bearer token)
 
 Users (mount: `/api/users`)
-- GET `/api/users` — list users (id, username, email, total_point, avatar_url, dob, gender, phone)
-- POST `/api/users` — create user { username, email, password }
-- POST `/api/users/complete` — mark challenge completed for user { user_id, challenge_id }
-- GET `/api/users/:id` — get profile
-- POST `/api/users/:id` — update profile
+- GET `/api/users` — list users
+- POST `/api/users` — create user
+- POST `/api/users/complete` — mark challenge complete { user_id, challenge_id }
+- GET `/api/users/:id` — get user profile
+- POST `/api/users/:id` — update user profile
 - POST `/api/users/:id/avatar` — update avatar
 - POST `/api/users/:id/password` — change password
-- GET `/api/users/:id/vouchers` — user vouchers
+- GET `/api/users/:id/vouchers` — list vouchers for user
+
+Locations (mount: `/api/locations`)
+- GET `/api/locations` — list locations
+- GET `/api/locations/nearby` — list nearby by query params (lat/lon)
+- GET `/api/locations/:id` — get location details
+- POST `/api/locations` — create location
+- GET `/api/locations/me/favorites` — list my favorite locations (auth)
+- POST `/api/locations/:id/favorite` — add favorite (auth)
+- DELETE `/api/locations/:id/favorite` — remove favorite (auth)
+
+Location Images (mount: `/api/locations/:locationId/images`)
+- GET `/api/locations/:locationId/images` — list images for a location
+- POST `/api/locations/:locationId/images` — add image (if implemented)
 
 Challenges (mount: `/api/challenges`)
-- GET `/api/challenges` — list challenges (may include `locations` comma-separated)
+- GET `/api/challenges` — list challenges
 - POST `/api/challenges` — create challenge
-- POST `/api/challenges/:id/join` — user join
-- POST `/api/challenges/:id/complete` — mark complete, add points
-- GET `/api/challenges/:id/locations`
-- GET `/api/challenges/:id/rewards`
+- POST `/api/challenges/:id/join` — join challenge
+- POST `/api/challenges/:id/complete` — complete challenge
+- GET `/api/challenges/:id/locations` — list locations of challenge
+- GET `/api/challenges/:id/rewards` — list rewards of challenge
 
 Rewards (mount: `/api/rewards`)
 - GET `/api/rewards` — list rewards
-- GET `/api/rewards/catalog` — optional query/user_id
+- GET `/api/rewards/catalog` — rewards catalog (optional `user_id`)
 - POST `/api/rewards` — create reward
 - POST `/api/rewards/redeem` — redeem reward { user_id, reward_id }
+- GET `/api/rewards/user/:userId/inventory` — list voucher inventory (user_reward rows) for user
+- GET `/api/rewards/user/:userId/transactions` — list reward transactions (issuance, redemption, usage)
+- GET `/api/rewards/user/:userId/voucher/:userRewardId` — fetch a specific voucher (code/status/expiry)
+- POST `/api/rewards/use/:userRewardId` — mark voucher used (sets `status=used`, `used_at`)
 
-Reviews (mount: `/api/reviews`)
-- POST `/api/reviews` — create review (auth required) { location_id, rating, comment }
-- GET `/api/reviews/location/:locationId` — list reviews for location
-- DELETE `/api/reviews/:id` — delete (auth required)
+Reviews (locations) (mount: `/api/reviews`)
+- POST `/api/reviews` — create location review (auth) { location_id, rating, comment }
+- GET `/api/reviews/location/:locationId` — list reviews for a location
+- PUT `/api/reviews/:id` — edit review (auth)
+- DELETE `/api/reviews/:id` — delete review (auth)
+
+Trip Reviews (mount: `/api/trip-reviews`)
+- POST `/api/trip-reviews` — create trip review (auth) { trip_id, rating, comment }
+- GET `/api/trip-reviews/trip/:tripId` — list reviews for a trip
+- PUT `/api/trip-reviews/:id` — edit trip review (auth)
+- DELETE `/api/trip-reviews/:id` — delete trip review (auth)
 
 Points (mount: `/api/points`)
-- POST `/api/points/transactions` — record tx (auth required)
-- GET `/api/points/transactions` — list user's tx (auth required)
-- GET `/api/points/me` — get my points (auth required)
-
-Filters (mount: `/api/filters`)
-- GET `/api/filters` — list filters
-- POST `/api/filters` — create filter (auth required)
+- POST `/api/points/transactions` — add points tx (auth)
+- GET `/api/points/transactions` — list my transactions (auth)
+- GET `/api/points/me` — get my points (auth)
 
 Favorites (mount: `/api/favorites`)
-- GET `/api/favorites` — list (queryable)
+- GET `/api/favorites` — list favorites
 - GET `/api/favorites/find` — find favorite by query params
 - POST `/api/favorites` — create favorite (auth)
-- DELETE `/api/favorites/:id` — delete (auth)
+- DELETE `/api/favorites/:id` — delete favorite (auth)
 
 Shops (mount: `/api/shops`)
 - GET `/api/shops` — list shops
-- GET `/api/shops/:shopId` — get shop details
+- GET `/api/shops/:shopId` — shop details
 
 Motorbikes (mount: `/api/motorbikes`)
-- GET `/api/motorbikes` — list bikes
-- GET `/api/motorbikes/:bikeId` — get bike
-- PATCH `/api/motorbikes/:bikeId` — update bike (auth)
+- GET `/api/motorbikes` — list motorbikes
+- GET `/api/motorbikes/:bikeId` — motorbike details
+- PATCH `/api/motorbikes/:bikeId` — update motorbike (auth)
 
 Rentals (mount: `/api/rentals`)
 - POST `/api/rentals` — create rental (auth)
-- GET `/api/rentals` — find rentals by filters (bikeId/userEmail/isReturned)
+- GET `/api/rentals` — list/find rentals
 - PATCH `/api/rentals/:id` — update rental (auth)
 - GET `/api/rentals/open` — list open rentals for a user
 
-Tours (mount: `/api/tours`)
-- GET `/api/tours` — list tours
-- GET `/api/tours/:tourId` — get tour
-- POST `/api/tours` — create tour
-- PUT `/api/tours/:tourId` — update
-- DELETE `/api/tours/:tourId` — delete
+Trips (mount: `/api/trips`)
+- GET `/api/trips` — list trips
+- GET `/api/trips/:id` — get trip details
+ - GET `/api/trips/me/favorites` — list my favorite trips (auth)
+ - POST `/api/trips/:id/favorite` — add trip favorite (auth)
+ - DELETE `/api/trips/:id/favorite` — remove trip favorite (auth)
+
+Trips-Location (mount: `/api/trips-location`)
+- GET `/api/trips-location` — list trip-location mappings
+- GET `/api/trips-location/:tripId` — list locations for a trip
+
+Misc
+- GET `/api` — API index listing
+- POST `/api/chat` — proxy to Chat API (if configured)
+- POST `/api/events` — echo ingest endpoint
 
 ---
 
@@ -525,4 +440,7 @@ Muốn tôi bổ sung ví dụ curl cho một số endpoint (auth: register/logi
 ## Notes about API
 - All endpoints return JSON and use simple validation. The backend performs DB operations using SQLite and enforces FK constraints.
 - For frontend integration, ensure CORS is configured (`CORS_ORIGIN`) so your frontend origin can call these endpoints during development.
+- Voucher lifecycle: per-user codes generated on redemption or challenge completion (fields: `code,status,obtained_at,issued_at,expires_at,used_at`). Consume via `POST /api/rewards/use/:userRewardId`.
+- Trip favorites mirror location favorites and expose `is_favorite` in trip list/detail responses.
+- Shop addresses trimmed (city-level only) for cleaner international display.
 

@@ -282,14 +282,42 @@ async function importUserLocation() {
 async function importUserReward() {
   const {header, rows} = readCSV(requireFile('user_reward.csv'));
   if (!rows.length) return 0; const h = Object.fromEntries(header.map((c,i)=>[c,i]));
-  // Existing schema (connect.js) uses obtained_at instead of claimed_at and has extra columns; only set obtained_at.
-  // If table lacks obtained_at, fall back to claimed_at column name.
+  // Determine available columns in DB
   const cols = await all('PRAGMA table_info(user_reward);');
-  const hasObtained = cols.some(c=>c.name==='obtained_at');
-  const targetCol = hasObtained ? 'obtained_at' : 'claimed_at';
-  const insert = db.prepare(`INSERT OR IGNORE INTO user_reward (user_id,reward_id,${targetCol}) VALUES (?,?,?)`);
-  let count=0; for (const r of rows){ insert.run([r[h.user_id], r[h.reward_id], r[h.claimed_at]||null], e=>{ if(e) console.warn('User_reward insert failed:', e.message);}); count++; }
-  insert.finalize(); return count;
+  const colNames = cols.map(c=>c.name);
+  // Map possible CSV headers -> DB columns
+  // Legacy CSV: user_id,reward_id,claimed_at
+  // New CSV recommended: user_id,reward_id,code,status,obtained_at,issued_at,expires_at,used_at
+  const fieldMap = [];
+  if (h.user_id !== undefined && h.reward_id !== undefined) {
+    // Always include mandatory columns
+    fieldMap.push({csv:'user_id', db:'user_id'});
+    fieldMap.push({csv:'reward_id', db:'reward_id'});
+  }
+  // claimed_at fallback -> obtained_at
+  if (h.claimed_at !== undefined) {
+    fieldMap.push({csv:'claimed_at', db: colNames.includes('obtained_at') ? 'obtained_at' : 'claimed_at'});
+  } else if (h.obtained_at !== undefined) {
+    fieldMap.push({csv:'obtained_at', db:'obtained_at'});
+  }
+  // Optional new columns
+  ['code','status','issued_at','expires_at','used_at'].forEach(col => {
+    if (h[col] !== undefined && colNames.includes(col)) {
+      fieldMap.push({csv:col, db:col});
+    }
+  });
+  // Build insert statement dynamically avoiding duplicate user_reward rows (use OR IGNORE on unique code index)
+  const dbCols = fieldMap.map(f=>f.db);
+  const placeholders = dbCols.map(()=>'?').join(',');
+  const insert = db.prepare(`INSERT OR IGNORE INTO user_reward (${dbCols.join(',')}) VALUES (${placeholders})`);
+  let count=0;
+  for (const r of rows){
+    const params = fieldMap.map(f => r[h[f.csv]] || null);
+    insert.run(params, e=>{ if(e) console.warn('User_reward insert failed:', e.message);});
+    count++;
+  }
+  insert.finalize();
+  return count;
 }
 
 async function updateSequences() {

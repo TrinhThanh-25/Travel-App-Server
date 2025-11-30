@@ -155,6 +155,8 @@ export const getUserVouchers = (req, res) => {
   );
 };
 
+// Redeem (use) a voucher code for the authenticated user
+
 export const getUserAvatar = (req, res) => {
   const userId = req.params.id;
   db.get(

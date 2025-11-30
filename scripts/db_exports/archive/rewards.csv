@@ -1,9 +1,23 @@
 id,name,description,cost,percent,code,start_date,end_date,expires_at,point_reward,max_uses,per_user_limit
-1,"Free Coffee","Redeem for a free cup",10,0,"",,,,0,,1
-2,"Discount Voucher","10% off",20,0,"",,,,0,,1
-3,"Free Coffee @Entertainment","Một ly cà phê miễn phí",0,100,"FREECOFFEE",,,,0,,1
-4,"10% Off Billiards","Giảm 10% phí billiards",0,10,"BIL10",,,,0,,1
-5,"20% Archery Discount","Giảm 20% CLB bắn cung",0,20,"ARCH20",,,,0,,1
-6,"Zoo Ticket - 15% Off","Giảm 15% vé Thảo Cầm Viên",0,15,"ZOO15",,,,0,,1
-7,"Bowling Coupon","Phiếu giảm Bowling 25%",0,25,"BOWL25",,,,0,,1
-8,"VR Arcade 5%","Giảm 5% khu Arcade & VR",0,5,"VR05",,,,0,,1
+1,"Archery Master 30%","30% discount at archery clubs",0,30,"",,,,0,,1
+2,"Theme Park Snack Pack","Snack combo at theme park",0,0,"",,,,0,,1
+3,"Loyalty Coffee Bonus","Coffee bonus for loyal redeemers",0,0,"",,,,0,,1
+4,"Theme Park Dual Pass","Combo ticket for two parks",0,0,"",,,,0,,1
+5,"Explorer Badge Pack","Explorer badge reward pack",0,0,"",,,,0,,1
+6,"Silver Points Bonus","Milestone reward for 500 points",0,0,"",,,,0,,1
+7,"Gold Points Bonus","Milestone reward for 1000 points",0,0,"",,,,0,,1
+8,"Platinum Points Bonus","Milestone reward for 2000 points",0,0,"",,,,0,,1
+9,"Loyalty Mega Pack","Reward pack for 10 redemptions",0,0,"",,,,0,,1
+10,"History Explorer Voucher","Cultural & history exploration voucher",0,0,"",,,,0,,1
+11,"Multi-Category Pass","Pass for multiple location categories",0,0,"",,,,0,,1
+12,"Knowledge Badge","Badge for reading location details",0,0,"",,,,0,,1
+13,"Review Champion Bonus","Bonus for writing many reviews",0,0,"",,,,0,,1
+14,"10% Cafe Discount","10% discount at partner cafes",200,10,"",,,,0,,1
+15,"Free Snack Voucher","Redeem for a free snack",150,0,"",,,,0,,1
+16,"15% Theme Park Ticket","15% off a theme park ticket",400,15,"",,,,0,,1
+17,"Motorbike Rental 1 Hour","One hour motorbike rental voucher",500,0,"",,,,0,,1
+18,"50 Bonus Points Pack","Grants extra 50 points when used",300,0,"",,,,50,,1
+19,"Avatar Frame: Explorer","Unlock explorer avatar frame",250,0,"",,,,0,,1
+20,"Profile Badge: Reviewer","Unlock reviewer profile badge",200,0,"",,,,0,,1
+21,"20% Multi-Location Pass","20% discount across selected locations",600,20,"",,,,0,,1
+22,"Premium Coffee Upgrade","Upgrade to premium coffee size",180,0,"",,,,0,,1

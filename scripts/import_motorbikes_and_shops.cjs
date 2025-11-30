@@ -69,7 +69,17 @@ function importMotorbikes(db) {
     INSERT INTO Motorbikes (
       id, name, price_per_hour, available, imageUrl,
       brakeType, power, year, engineVolume, licenseRequired, model3dUrl
-    ) VALUES (?,?,?,?,?,?,?,?,?,?,?)
+    ) VALUES (?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+      name=excluded.name,
+      price_per_hour=excluded.price_per_hour,
+      available=excluded.available,
+      imageUrl=excluded.imageUrl,
+      brakeType=excluded.brakeType,
+      power=excluded.power,
+      year=excluded.year,
+      engineVolume=excluded.engineVolume,
+      licenseRequired=excluded.licenseRequired,
+      model3dUrl=excluded.model3dUrl
   `);
 
   let inserted = 0;
@@ -122,7 +132,37 @@ function importShops(db) {
       description,
       userReviews_0_userName, userReviews_0_userAvatarUrl, userReviews_0_rating, userReviews_0_comment,
       userReviews_1_userName, userReviews_1_userAvatarUrl, userReviews_1_rating, userReviews_1_comment
-    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET
+      name=excluded.name,
+      address=excluded.address,
+      latitude=excluded.latitude,
+      longitude=excluded.longitude,
+      rating=excluded.rating,
+      ratingCount=excluded.ratingCount,
+      imageUrl=excluded.imageUrl,
+      galleryImages_0=excluded.galleryImages_0,
+      galleryImages_1=excluded.galleryImages_1,
+      owner_id=excluded.owner_id,
+      owner_name=excluded.owner_name,
+      owner_email=excluded.owner_email,
+      owner_phoneNumber=excluded.owner_phoneNumber,
+      owner_profileImageUrl=excluded.owner_profileImageUrl,
+      motorbikes_0=excluded.motorbikes_0,
+      motorbikes_1=excluded.motorbikes_1,
+      motorbikes_2=excluded.motorbikes_2,
+      motorbikes_3=excluded.motorbikes_3,
+      motorbikes_4=excluded.motorbikes_4,
+      motorbikes_5=excluded.motorbikes_5,
+      motorbikes_6=excluded.motorbikes_6,
+      description=excluded.description,
+      userReviews_0_userName=excluded.userReviews_0_userName,
+      userReviews_0_userAvatarUrl=excluded.userReviews_0_userAvatarUrl,
+      userReviews_0_rating=excluded.userReviews_0_rating,
+      userReviews_0_comment=excluded.userReviews_0_comment,
+      userReviews_1_userName=excluded.userReviews_1_userName,
+      userReviews_1_userAvatarUrl=excluded.userReviews_1_userAvatarUrl,
+      userReviews_1_rating=excluded.userReviews_1_rating,
+      userReviews_1_comment=excluded.userReviews_1_comment
   `);
 
   let inserted = 0;

@@ -1,3 +1,3 @@
-user_id,reward_id,claimed_at
-"1","1","2025-11-01 11:35:51"
-"2","2","2025-11-01 11:35:52"
+user_id,reward_id,code,status,obtained_at,issued_at,expires_at,used_at
+"1","1","7F3A9C12ABCD","active","2025-11-01 11:35:51","2025-11-01 11:35:51","",""
+"2","2","4D8E71F0C345","active","2025-11-01 11:35:52","2025-11-01 11:35:52","",""

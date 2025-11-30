@@ -37,6 +37,7 @@ const [
   shopRoutesModule,
   rentalRoutesModule,
 	reviewRoutesModule,
+	tripReviewRoutesModule,
 	pointsRoutesModule,
 	tripsRoutesModule,
 	tripsLocationRoutesModule
@@ -52,6 +53,7 @@ const [
   import('./routes/shopRoutes.js'),
   import('./routes/rentalRoutes.js'),
 	import('./routes/locationReviewRoutes.js'),
+	import('./routes/tripReviewRoutes.js'),
 	import('./routes/pointsRoutes.js'),
 	import('./routes/tripsRoutes.js'),
 	import('./routes/tripsLocationRoutes.js')
@@ -68,6 +70,7 @@ const motorbikeRoutes = motorbikeRoutesModule.default;
 const shopRoutes = shopRoutesModule.default;
 const rentalRoutes = rentalRoutesModule.default;
 const reviewRoutes = reviewRoutesModule.default;
+const tripReviewRoutes = tripReviewRoutesModule.default;
 const pointsRoutes = pointsRoutesModule.default;
 const tripsRoutes = tripsRoutesModule.default;
 const tripsLocationRoutes = tripsLocationRoutesModule.default;
@@ -133,6 +136,7 @@ app.use('/api/shops', shopRoutes);
 app.use('/api/rentals', rentalRoutes);
 // new endpoints for reviews, points, and filters
 app.use("/api/reviews", reviewRoutes);
+app.use("/api/trip-reviews", tripReviewRoutes);
 app.use("/api/points", pointsRoutes);
 app.use("/api/trips", tripsRoutes);
 app.use("/api/trips-location", tripsLocationRoutes);
@@ -148,6 +152,7 @@ app.get('/api', (req, res) => {
 			'/api/users',
 			'/api/rewards',
 			'/api/reviews',
+			'/api/trip-reviews',
 			'/api/points',
 			'/api/trips',
 			'/api/trips-location',

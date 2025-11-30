@@ -9,11 +9,12 @@ export const getAllRewards = (req, res) => {
 };
 
 export const addReward = (req, res) => {
-  const { name, start_date, end_date, description, cost, expires_at, point_reward, max_uses, per_user_limit, metadata, percent, code } = req.body;
+  const { name, start_date, end_date, description, cost, expires_at, point_reward, max_uses, per_user_limit, metadata, percent } = req.body;
+  // Ignore any provided code; codes are generated per user_reward issuance.
   db.run(
     `INSERT INTO rewards (name, start_date, end_date, description, cost, expires_at, point_reward, max_uses, per_user_limit, metadata, percent, code)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-    [name, start_date || null, end_date || null, description || null, cost || 0, expires_at || null, point_reward || 0, max_uses || null, per_user_limit || 1, metadata || null, percent || 0, code || null],
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL)`,
+    [name, start_date || null, end_date || null, description || null, cost || 0, expires_at || null, point_reward || 0, max_uses || null, per_user_limit || 1, metadata || null, percent || 0],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
       const rewardId = this.lastID;
@@ -180,10 +181,25 @@ export const useUserReward = (req, res) => {
     if (err) return res.status(500).json({ error: err.message });
     if (!row) return res.status(404).json({ error: 'Voucher not found' });
     if (row.status === 'used') return res.status(400).json({ message: 'Voucher already used' });
-    db.run(`UPDATE user_reward SET status = 'used' WHERE id = ?`, [userRewardId], function (uErr) {
+    if (row.expires_at && new Date(row.expires_at) < new Date()) return res.status(400).json({ message: 'Voucher expired' });
+    db.run(`UPDATE user_reward SET status = 'used', used_at = datetime('now') WHERE id = ?`, [userRewardId], function (uErr) {
       if (uErr) return res.status(500).json({ error: uErr.message });
-      res.json({ message: 'Voucher marked as used', user_reward_id: userRewardId });
+      // Log redemption activity for challenge progress tracking
+      db.run(`INSERT INTO user_activity (user_id, type, meta_json) VALUES (?,?,?)`, [user_id, 'reward_redeemed', JSON.stringify({ user_reward_id: userRewardId, code: row.code, reward_id: row.reward_id })]);
+      res.json({ message: 'Voucher marked as used', user_reward_id: userRewardId, code: row.code });
     });
+  });
+};
+
+export const getUserVoucherCode = (req, res) => {
+  const userId = req.params.userId;
+  const userRewardId = req.params.userRewardId;
+  db.get(`SELECT ur.id as user_reward_id, ur.code, ur.status, ur.used_at, ur.expires_at, r.id as reward_id, r.name, r.description, r.percent
+          FROM user_reward ur INNER JOIN rewards r ON ur.reward_id = r.id
+          WHERE ur.user_id = ? AND ur.id = ?`, [userId, userRewardId], (err, row) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (!row) return res.status(404).json({ error: 'Voucher not found' });
+    res.json(row);
   });
 };
 

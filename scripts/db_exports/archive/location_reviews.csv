@@ -10928,4 +10928,375 @@ id,user_id,location_id,rating,comment,created_at
 10927,52,116,5,"Great flavors, though the wait can be long during peak hours.",2025-10-08 09:17:00
 10928,65,145,5,"Delicious and well-seasoned. Portions are generous and service is friendly.",2024-01-13 16:28:00
 10929,78,174,1,"Menu looked promising but flavors were disappointing.",2023-04-18 11:39:00
-10930,91,203,2,"Food was bland and portions felt small for the price.",2025-07-23 18:50:00
+10930,91,203,2,"Food was bland and portions felt small for the price.",2025-07-23 18:50:0010931,44,305,5,"Ăn cũng được, tô nhỏ 45k nhiều thịt, ăn đủ no. Đi sáng thứ 7 quán khá đông, không gian nhỏ ít chỗ ngồi. Nhân viên dắt xe nhiệt tình",2025-11-30T08:42:22Z
+10932,26,305,5,"Có ghé lúc tối muộn làm tô Tái Gầu. Phở kiểu miền Nam, nước phở đậm đà đúng chất, thịt nhiều, thịt tái mềm, Gầu/nạm mỡ thì ko đc mềm.
+Giá 55k/phần mix Tái Gầu ổn …",2025-11-30T08:42:22Z
+10933,4,305,5,"55k/tô lớn (như hình) & 45k/tô nhỏ
+- Thịt ngon, nước lèo vừa ăn (chỉ cần miếng chanh là ổn rồi)
+- Quán nằm cuối đường vào chợ hoa Hồ Thị Kỷ (giáp Hùng Vương) …",2025-11-30T08:42:22Z
+10934,53,305,4,"Phở kiểu Nam
+Thịt ngon, đủ các loại
+Nước lèo đậm vị
+Quán sạch sẽ ngăn nắp",2025-11-30T08:42:22Z
+10935,30,305,3,"Quán ăn cũng tạm được, thịt thà bò viên chất lượng. Tuy nhiên nước lèo hơi sắc (mặn), bánh phở ít. Rau tươi và sạch",2025-11-30T08:42:22Z
+10936,85,306,5,"Phở Hiền trên Nguyễn Trãi thật sự là nơi khiến mình trở thành “fan cuồng” chính hiệu. Hương vị phở ở đây đậm đà, nước dùng trong và thơm, ăn một lần là nhớ mãi. Không chỉ ngon ở món ăn, mà ấn tượng nhất chính là sự tử tế và ấm áp của con …",2025-11-30T08:42:22Z
+10937,100,306,5,"Vị Phở Nam - rất ngon - ăn nhiều năm rồi trở lại vẫn thấy ngon, cả phở bò và phở gà đều ngon, sạch sẽ! Phục vụ tốt.
+Highly recommmend for tourists - who would liek to try Phở with Saigon's tasting.",2025-11-30T08:42:22Z
+10938,77,306,5,"Món ngon. ( bắp bò hơi dai) bò viên 10đ
+Nhân viên dễ thương lắm.
+Rau tươi. Không gian mát mẻ. Sạch thơm. 😍😍 …",2025-11-30T08:42:22Z
+10939,27,306,5,"Ngon, thơm. Sạch sẽ, lịch sự. Phục vụ chu đáo.",2025-11-30T08:42:22Z
+10940,69,306,5,"Phở rất ngon. Phở gà xé thập cẩm có trứng non chẻ đôi, gà xé miếng to, tim, gan, mề. Nước dùng đậm đà, có mùi gà. Tương đen đỏ chấm tự làm. Cay. Có cả muối tiêu, lá chanh xắt. Rau ăn kèm nhiều loại. 10 điểm và rất hạnh phúc",2025-11-30T08:42:22Z
+10941,61,307,4,"Đây là quán Việt hay nước nào, gặp toàn người nước ngoài Âu, Phi
+
+Hương vị đậm đà, tô to khổng lồ, tôi ăn không nổi. …",2025-11-30T08:42:22Z
+10942,23,307,4,"Lần đầu ăn tại quán này. Mình ăn vào chủ nhật nên quán khá đông nhưng vừa vào là có bàn, quán ra món khá nhanh, phục vụ vui vẻ thân thiệt. Món phở vị tương đối thôi chứ không quá xuất sắc, khẩu vị riêng mỗi người, với mình thì khá nhạt …",2025-11-30T08:42:22Z
+10943,36,307,3,"Phở Hùng Nguyễn Trãi vị ngon, thịt mềm, nước phở vị ngọt, dễ ăn, vệ sinh quán sạch sẽ, đã ăn rất nhiều lần.",2025-11-30T08:42:22Z
+10944,96,307,4,"Phở ăn cũng được thôi, cảm giác k ngon như xưa nữa, sợi phở nhỏ, có size to và nhỏ, cả phở bò và gà.
+Phục vụ tốt, không gian sạch sẽ.",2025-11-30T08:42:22Z
+10945,99,307,5,Hương vị các món ăn không quá đặc biệt nhưng chất lượng phục vụ nhiệt tình. Nước dùng hơi nhạt. Mình đã gọi phở đặc biệt với giá 85k như ảnh. Mọi người có thể trãi nghiệm,2025-11-30T08:42:22Z
+10946,40,308,5,"phở ngon toẹt vời nha bà con tuy nhiên bò viên hơi dở, bún bò ăn ok. đây là quán rẻ mà chất lượng nhất bữa giờ mình ăn. 76k cho 2 tô.",2025-11-30T08:42:22Z
+10947,29,308,4,"● Giá cả ok. 1 phần ko giò là 40k
+● Hương vị ở mức ổn. Ko quá ngon. Nhưng giá v thì chấp nhận đc",2025-11-30T08:42:22Z
+10948,81,308,5,Mình thấy quán này ăn ok. Giá chỉ 40k/ tô khá rẻ vs mặt bằng Q10. Nhưng quán hơi nhỏ và nóng.,2025-11-30T08:42:22Z
+10949,31,308,5,"Đồ ăn ngon, vợ chồng chủ quán thân thiện",2025-11-30T08:42:22Z
+10950,75,308,5,"Quán ăn giá bình dân,chị chủ quán và mấy  e phục vụ nhiệt tình vui vẻ.",2025-11-30T08:42:22Z
+10951,69,309,5,"Phở áp chảo chuẩn vị Nam Định mỗi tội bát hơi to và nhiều so với sức ăn của nữ, quầy giòn ngon nhq, giá trụng giá có rễ là giá nhà làm đảm bảo nhen",2025-11-30T08:42:22Z
+10952,92,309,5,"Phở đúng vị Bắc luôn. Quẩy cũng giòn nữa.
+Vừa có phở bò vừa có phở gà.
+Mình cứ mỗi khi thấy người hơi cảm ăn bát phở gà là tỉnh. Quán mở sớm , đóng …",2025-11-30T08:42:22Z
+10953,2,309,5,"Rất ngon. Nước lèo trong, thơm, ngon. Thịt bò, bò viên tươi, ngọt.
+Ăn phở ở đây xong không ăn được phở Nam luôn.",2025-11-30T08:42:22Z
+10954,44,309,4,"Quán phở bị Bắc - Nam Định với nước phở khá ngon
+Mình chọn phở Tái Nạm Gầu, tính ra ăn ngon và đúng vị, nhưng giá 80k/ bát (không quá mắc) so với một số quán như Phở Bùi Gia thì không xuất sắc bằng (so sánh …",2025-11-30T08:42:22Z
+10955,85,309,5,"Mình tới gọi 1 bát phở bắp+1 cốc trà đá+2 quẩy, tổng hết 78k. Bát phở khá hợp khẩu vị của người Bắc như mình. Không gian quán thoải mái, có thể tới trải nghiệm thử một lần",2025-11-30T08:42:22Z
+10956,16,310,5,"Thấy quán này đã lâu, quán nhỏ nhưng nhìn sáng sủa và sạch sẽ nên ghé dùng thử
+Bò viên dai dòn, ko hôi mùi bò nhiều. Nước lèo nêm vừa miệng.
+Nói chung là ăn ổn. Giá hình như 55k/tô",2025-11-30T08:42:22Z
+10957,13,310,5,"✅✅✅ Điểm cộng: Quán sạch, dễ thương, có người dắt xe cho, đồ ăn ngon, phục vụ nhanh
+⛔️⛔️⛔️ Điểm trừ: nước lèo hơi mặn, nhưng chấp nhận được theo quan điểm cá nhân …",2025-11-30T08:42:22Z
+10958,55,310,4,"Quán nhỏ, sạch sẽ, thức ăn tươi ngon, bò viên dai ngon, tương ăn kèm thơm ngon. Nhân viên chu đáo, vị nêm nếm hơi ngọt. Nước lèo trong, thơm, vừa ăn. Giá cả hợp lý",2025-11-30T08:42:22Z
+10959,51,310,5,"Đi theo đánh giá google, quán hơi nhỏ, ít chỗ ngồi, mình ăn mì khô và hủ tiếu nước thập cẩm, bò viên dai ngon, nạm sụn gân bò cũng ngon, rau ăn kèm để dĩa bọc lại nhìn sạch sẽ, 1 tô 55k, chất lượng ổn, sẽ còn quay lại",2025-11-30T08:42:22Z
+10960,92,310,5,"Quán nhỏ xinh, tủ để đồ ăn sạch sẽ, bò viên ngon, tô đầy đặn, mình ăn 2 tô + 2 trà đá + khăn = 118k",2025-11-30T08:42:22Z
+10961,20,311,4,"Quán phở nhỏ, buổi sáng rất đông.
+
+* Mình cũng ko biết là quán Phở Chú Trí và Phở Trí có phải là 1 hay ko nha. …",2025-11-30T08:42:22Z
+10962,57,311,5,"Xem trên tiktok nên đến ăn thử, theo như mấy lần đi ngang buổi sáng thì quán đông lắm. Còn đợt này mình đến ăn vào khoảng 8h tối, lượng khách lai rai chứ không quá đông hay quá vắng. …",2025-11-30T08:42:22Z
+10963,24,311,1,"Mới ăn lúc sáng. Dkm dở kinh khủng. Nước lèo không ra vị gì. Lạt nhách. Chắc chỉ được nhiều loại toping như tủy, sụn, xí quách...",2025-11-30T08:42:22Z
+10964,96,311,5,"Quán phở bò ngon, nước dùng thanh ngọt. Chú bán phở rất nhẹ nhàng, tinh tế, làm tô phở rất chăm chút",2025-11-30T08:42:22Z
+10965,59,311,5,,2025-11-30T08:42:22Z
+10966,17,312,5,"Quán phở gia truyền Hà Nội nhưng theo cảm quan của mình thì thấy vị phở hơi hướng Nam Định nhiều hơn. Mình gọi phở bò, khẩu phần ăn khá to và nhiều thịt. Nước dùng theo mình thì hơi đậm đà một xíu. Có thể ăn kèm với quẩy giòn và tương ớt …",2025-11-30T08:42:22Z
+10967,99,312,3,"Quán sạch sẽ lịch sự, có điều nấu vị Bắc mình ăn k quen lắm. 60k 1 tô basic",2025-11-30T08:42:22Z
+10968,58,312,2,"So với khu vực xung quanh thì tạm đc,phong cách phục vụ và vệ sinh thì khuất mắt sẽ thấy ngon,giá cả với dịch vụ thì 6 điểm thôi!",2025-11-30T08:42:22Z
+10969,84,312,5,"quán chuyên bán phở và miến gà
+đồ ăn ngon, hợp khẩu vị và rất đông khách
+😚 …",2025-11-30T08:42:22Z
+10970,82,312,4,"● Quán có máy lạnh ăn mát
+● Phở vị Bắc nhưng mà nước dùng mặn quá  . Và thấy cho hơi nhiều hương liệu hay sao ấy. Đậm mùi vị đấy quá …",2025-11-30T08:42:22Z
+10971,5,313,5,"Quán bán bún bò và phở rất ngon, nm ai gần vị trí này nên ghé qua ăn  chị chủ cực thân thiện luôn nha😋😋😋😋 …",2025-11-30T08:42:22Z
+10972,47,313,5,"Bún bò ngon 38k chả ê hề, ngon 👍🏻 …",2025-11-30T08:42:22Z
+10973,32,313,5,"có bún bò huế, phở bò , bò kho, phá lấu món nào cũng ngon hết",2025-11-30T08:42:22Z
+10974,11,313,5,"quán chủ rất dể tính, bán rất ngon, giá lại bình dân",2025-11-30T08:42:22Z
+10975,5,313,4,"Ăn khá ngon, giá thì thường… 30>60k",2025-11-30T08:42:22Z
+10976,3,314,5,"Quán ruột, gia đình mình ăn hơn 10 năm nay rồi vì gần nhà lắm, nước lèo đậm đà ngon nè, thích ở đây vì có bánh quẩy giòn vs mỡ nổi 🎀🌸💝 giá okk phù hợp nhen 60 cá 1 tô …",2025-11-30T08:42:22Z
+10977,80,314,3,"Quán trong hẻm, chỗ để xe chật
+Thức ăn ở mức chấp nhận được
+Nguyên liệu : điểm trừ lớn nhất , thịt bò ĐỂ LẠNH QUA ĐÊM - ko dùng thịt nóng …",2025-11-30T08:42:22Z
+10978,14,314,5,Phở ngon vị Nam khá đặc biệt ở saigon. Gầu và bò viên ngon lắm. Mình hay gọi thêm tiết hột gà cũng khá ổn. Lúc còn ở khu này mình ăn gần như mỗi tuần.,2025-11-30T08:42:22Z
+10979,48,314,5,"Hồi chưa biết tới quán phở này, mình ăn ở một quán phở khác không tiện nói tên từ nhỏ tới lớn. Chắc cũng cỡ 15 năm trời. Rồi thì chủ quán phở đó sang quán lại cho khứa kia. Nó đổi công thức, làm cho tô phở trở thành một thứ gì đó không thể …",2025-11-30T08:42:22Z
+10980,27,314,1,"mong là chủ tiệm có đọc đánh giá này, nhà mình ăn ở đây từ hơn 10 mấy năm trước, từ lúc chưa sửa quán. dạo gần đây ít khách hơn nhưng mình vẫn ghé, đến hôm nay tức nước vỡ bờ, chủ tiệm giao hoàn toàn cho nhân viên mới nấu khiến nước dùng …",2025-11-30T08:42:22Z
+10981,94,315,1,"Hết sức tệ hại, mùi vị ăn không muốn bỏ vào miệng. Bún bò ko nóng, đắt. Nói chung không có lần sau.",2025-11-30T08:42:22Z
+10982,21,315,5,"Ta nói nó ngon mà nó dính dễ sợ. Mình order thố đá sườn, topping có thể thay đổi tùy ý. 1 thố 109k ấy, thố bưng ra nóng hổi luôn ăn muốn xông hơi. Thịt bò nhiều và tươi. Quán free bún thêm nha mọi người ăn thoải mái. Chi nhánh rất rộng rãi, …",2025-11-30T08:42:22Z
+10983,6,315,5,"Lần đầu mình ăn ở đây thấy ngon á, thịt bò khá nhiều, 2 khay lận, chả cua ngon, được cái nhìn xung quanh mọi thứ sạch sẽ, nhân viên ok nha …",2025-11-30T08:42:22Z
+10984,14,315,3,"Bún bò ngon, thơm. Cá nhân mình thấy nhiều mắm & nhiều nước béo quá. Mình sợ thố đá nhiêu quá ăn không hết, nên chỉ gọi tô bình thường. Ai dè nó ít xỉn hà, ko đủ nhét kẽ răng. Tô mình là 60k, giá này mặt tiền vậy thì ko mắc. Chả cua ngon, …",2025-11-30T08:42:22Z
+10985,41,315,3,"Đợi quá lâu, làm mất ngon, nước lèo thì ngon.
+Gọi món phải quét điện thoại, vào trong nhà mới tính tiền thì nó rất là phiền. Như xưa giờ đi đưa menu rồi ăn xong đưa tiền nhân viên đi.
+> Nếu mà quay lại thì không.",2025-11-30T08:42:22Z
+10986,59,316,5,"⭐⭐⭐⭐⭐
+The most delicious pho in the world! We ate it in this café — the broth is rich, the meat is tender, and the flavor is unforgettable. Highly recommended to …",2025-11-30T08:42:22Z
+10987,100,316,5,Đây chắc chắn là quán phở ngon nhất mà tôi từng đến ở Việt Nam.,2025-11-30T08:42:22Z
+10988,88,316,5,"Món hơi cao tiền nhưng đảm bảo rất ngon, đậm đà và làm kĩ, sạch sẽ!! Mùi vị thơm thơm không quá gắt, chuẩn phở bắc + nam ak. Phở trộn khô ngon hơn nhé",2025-11-30T08:42:22Z
+10989,76,316,5,"Phở gà,phở bò ở đây đặc biệt là miến trộn rất ngon.Saigon chưa thấy quán thứ hai có hương vị thuần Hà Nội như vậy.Phục vụ cũng rất vui vẻ niềm nở.Mình thật sự hài lòng!",2025-11-30T08:42:22Z
+10990,79,316,3,"Phở Vị Bắc - Chưa đạt
+
+- Quán mới mở gần đây, ghé ăn thử thấy chưa đạt lắm, vị bắc, và mình cũng chọn …",2025-11-30T08:42:22Z
+10991,71,317,5,"Đồ ãn cũng khá hợp vị. Tô mình tô chả không (không ăn thịt), đủ 3 loại chả. Bánh bột lọc cũng khá to, bánh nậm đậm đà. Quán mát mẻ, sạch sẽ. Ớt sa tế ngon",2025-11-30T08:42:22Z
+10992,67,317,5,"Bún bòa này ở gần trường mình
++Không gian: Nhỏ và hẹp không quá nhiều bàn, nhưng nhìn chung sạch sẽ và đèn còn hơi tối. …",2025-11-30T08:42:22Z
+10993,93,317,5,"Bún bò chuẩn hương vị Huế. Sườn hầm mềm, chả cua thơm, nước dùng thơm ngon đậm đà.",2025-11-30T08:42:22Z
+10994,38,317,5,"Ngon nhà chènn, thơm mùi sả, quán có bàn cao nhận chuyển khoản
+Có món bánh Huế cũng đặc sắc ko kém",2025-11-30T08:42:22Z
+10995,91,317,5,"Bún bò Huế nấu gần nhất với kiểu cung đình Huế. Nước lèo thanh mùi sả, thoảng nhẹ mùi mắm ruốc chứ không nồng. Thịt bắp bò mềm giòn sựt. Chả cua ngon dai. Đây là tiệm bún bò hiddem gem mà mình ăn 5 năm nay.",2025-11-30T08:42:22Z
+10996,82,318,5,Bò kho ngon mềm. Nước bò nêm nêm vừa miệng. Nhớ làm chén muối tiêu chanh chấm và cho ít muối tiêu vô tô nước lèo sẽ dậy vị hơn.,2025-11-30T08:42:22Z
+10997,31,318,3,"Quán bán phở buổi sáng và bò kho vào buổi chiều.
+
+Phở miền nam, nước dùng thiên vị ngọt, thịt mềm và sắt dầy, nên kêu thêm chén …",2025-11-30T08:42:22Z
+10998,97,318,4,"Buổi sáng quán bán phở với bún bò, chiều bán bò kho. Nấu theo style miền nam, nguyên liệu chất lượng, topping nhiều và to lắm. 1 tô cũng khá to ăn no căng. Số lượng bàn ko nhiều nhưng khách lai rai ổn định liên tục, ngày nào cũng đông.",2025-11-30T08:42:22Z
+10999,13,318,5,"Lâu ngày quay lại quán ăn vị vẫn ngon như xưa, địa điểm đáng để ghé cho ai muốn ăn món bò kho đúng vị",2025-11-30T08:42:22Z
+11000,75,318,4,"Sáng bán phở, chiều bán bò kho. Tô phở tái nạm như hình 50K; hợp khẩu vị của mình.",2025-11-30T08:42:22Z
+11001,7,319,5,Đây là lần thứ 4 tôi ghé lại quán và với kinh nghiệm ăn rất nhiều nơi như tôi thì có lẽ đây là quán phở còn giữ gần như là y nguyên hương vị xưa. Lần đầu ăn ở đây tôi khá bất ngờ khi lâu lắm rồi mình mới ăn được tô phở khiến mình nhớ về …,2025-11-30T08:42:22Z
+11002,80,319,3,"Nấy câu quote của quán rất cute, tuy nhiên mình ăn phần đặc biệt nhiều thịt nhưng thấy cũng không có đặc biệt lắm. Có vẻ không phải khẩu vị hay ăn nên thấy không hợp.",2025-11-30T08:42:22Z
+11003,71,319,5,"Mình đi ăn được 3 lần ưng cả 3
+k hợp gu mình lắm nhưng mình đánh giá cao",2025-11-30T08:42:22Z
+11004,35,319,5,"Chuẩn vị phở Bắc,giá cả hợp lý,đáng để mọi người trải nghiệm …",2025-11-30T08:42:22Z
+11005,28,319,2,"Theo quan điểm cá nhân thì nước dùng hơi mặn, chắc là do mình ăn buổi trưa. Nước dùng thực sự ko có gì đặc sắc.
+1 tô thường giá 50k nhưng được 2 muỗng thịt. …",2025-11-30T08:42:22Z
+11006,60,320,5,"Phở ngon, không gian sạch sẽ, chủ quán vui vẻ nhiệt tình. Giá 50K phần phở tái nạm, miễn phí trà đá.",2025-11-30T08:42:22Z
+11007,79,320,5,"Quán Phở có không gian sạch sẽ, thoáng mát, nhân viên phục vụ nhanh và thân thiện. Hương vị phở đậm đà, nước dùng trong và ngọt từ xương chứ không bị ngọt hoá chất, Thịt bò mềm, tái vừa, ăn kèm rau tươi và bánh phở dai ngon chuẩn vị. Giá cả …",2025-11-30T08:42:22Z
+11008,4,320,5,"Phở ngon, sạch sẽ, giá ổn. Tuy nhiên cô chú bán rất mau quên nên dặn gì nên nhắc đi nhắc lại, vì nhiều lần mình mua nói Ko Giá nhưng đem ra vẫn bỏ đầy giá, dù quán đang vắng chỉ có mình.
+Ở đây có Gầu khá ngon, mọi người nên thử",2025-11-30T08:42:22Z
+11009,19,320,5,"50k ăn no , ngon , đậm đà , đầy đủ khăn giấy trà đá free rau chanh ớt đầy đủ , sẽ ghé lần sau",2025-11-30T08:42:22Z
+11010,8,320,5,"Ngon téc nách, ăn thử 1 lần cách đây 2 năm mà 2 năm nay thành khách quen của quán luôn 😋 Lần nào cũng vét sạch tô …",2025-11-30T08:42:22Z
+11011,75,321,5,"Quán lúc nào cũng đông, lâu đời. Dịp nào đi ngang mình cũng ghé ăn. Cọng bún nhỏ, ko có lớp dầu bên trên. Nước lèo hợp vị, ko thuần huế đâu nha. Bắp hoa bò mềm nha. Giá dao động từ 65k - 85k.",2025-11-30T08:42:22Z
+11012,85,321,4,"Quán có view tuyệt vời, ngay góc ngã ba Bùi Thị Xuân - Cống Quỳnh
+
+- Nước lèo nêm nếm vừa vặn rất ngon …",2025-11-30T08:42:22Z
+11013,44,321,4,"Mình tới đây ăn sáng, có chỗ để xe rộng rãi, muỗng đũa hơi dơ nha quán nên lưu ý điểm này, mình gọi tô thường 65k gồm tái, nạm, chả thịt bò mềm nhưng để nói giống bún bò huế thì không nha.",2025-11-30T08:42:22Z
+11014,36,321,4,"Bún bò nằm đối diện Coopmart Cống Quỳnh, khá to và dễ tìm. Biển hiệu lớn, bắt mắt. Quán có vẻ lâu đời và có rất nhiều khách hàng đến ăn. Gửi xe cũng khá nhiều chỗ tuy nhiên do gửi lề đường nên nếu đông sẽ thiếu chỗ gửi xe. Bước vào quán …",2025-11-30T08:42:22Z
+11015,9,321,5,"Quán bún bò lâu năm, có từ 1995. Nước lèo trong nhưng rất đậm đà, sợi bún nhỏ, thịt mềm, giò rất mềm luônnn.",2025-11-30T08:42:22Z
+11016,35,322,5,"Quán sạch sẽ, sáng và thoáng. Phở từ 50k trở lên, tôi thích món tỏi ngâm ở đây, rất ngon.",2025-11-30T08:42:22Z
+11017,72,322,5,"Quán dễ tìm, có thể đậu 4-5 chiếc xe máy trước cửa tiệm.
+Tô phở nạm viên nhiều bò viên và thịt, nước dùng vị miền Nam đậm đà, rau tươi, nước sâm mía lau ngọt vừa, tổng 67k. Menu song ngữ dễ đọc. Anh chủ quán và anh …",2025-11-30T08:42:22Z
+11018,71,322,5,"💯 điểm cho anh chị chủ ạ. Phở ngon ( mình hơi tiếc vì k có lá chanh và da hơi bị mềm thôi) Phở ở đây theo kiểu miền Nam nhưng lại hợp vị mình. Giá quá rẻ vì quán nhìn sạch sẽ lắm, đến đũa thìa cũng bao lại sạch. …",2025-11-30T08:42:22Z
+11019,74,322,5,"Nhân viên quán lịch sự nhiệt tình, 10 điểm 🫰🏻
+Nước lèo thanh nhẹ, phù hợp khẩu vị người Nam.
+Theo khẩu vị của mình thì quán bỏ hơi nhiều hành tây với hành lá, nên nó át mất …",2025-11-30T08:42:22Z
+11020,58,322,5,"Giá cả hợp lý, phở ngon, nhân viên thân thiện, không gian sạch sẽ thoáng mát",2025-11-30T08:42:22Z
+11021,97,323,5,"Rau tươi mới, bàn gọn gàng, quanh khu vực ngồi sạch sẽ và miếng đuôi bò mềm, ngon, quá đã !
+- Rất hài lòng về tô phở ăn sáng nay, hài lòng không chỉ hương vị mà còn cả tính …",2025-11-30T08:42:22Z
+11022,44,323,5,"Trong ảnh gồm tô thập cẩm 32 + trứng gà 6 +trà đá 2. Thật sự thì quán mặt tiền cũng quận trung tâm mà tô phở có giá từ 28k lat thấy đủ wow rồi. Vị ngon, phục vụ tốt, lên món nhanh …",2025-11-30T08:42:22Z
+11023,6,323,5,"- Đồ ăn: Phở ở đây ngon, giá rẻ, 1 tô đặc biệt full topping mà chỉ với 42k giữa Q5 là quá rẻ
+- Dịch vụ: Nhân viên rất tận tình và chu đáo, thân thiện với khách, hỗ trợ khách …",2025-11-30T08:42:22Z
+11024,66,323,4,"Về hương vị, phở ngon, topping ngon, nước lèo nhiều bột ngọt (ăn về hơi choáng xíu), không thơm lắm, bánh phở nhỏ, nhân viên nch mà quên gọi thêm.",2025-11-30T08:42:22Z
+11025,70,323,1,"Hôm nay mình đến ăn, nước lèo ngọt kinh khủng, lợ lợ như nêm quá tay bột ngọt và đường. Mình đưa cho nhiều bạn của mình thường xuyên đến đây ăn đều xác nhận như v. Nói nhân viên thì nv kêu ăn đỡ đi và nhăn nhó.",2025-11-30T08:42:22Z
+11026,72,324,4,"Chạy ngang thấy quán ghé ăn thử gọi phần thập cẩm 70k trà đá 3k
+Nước dùng kiểu hoa thơm ngọt nhẹ
+2 gân mềm …",2025-11-30T08:42:22Z
+11027,59,324,3,"- Phở bò ở đây khá ngon, phục vụ nhanh chóng và khách cũng khá đông.
+- Nếu bạn thích vị phở của người Hoa, thì đây là một nơi lý tưởng, quán đủ hết các gia vị của người Hoa, và ăn đến cuối tô phở thì tô vẫn còn nóng. …",2025-11-30T08:42:22Z
+11028,38,324,5,"Thường món khoái khẩu mình hay ăn ở đây là hủ tiếu bò viên, siêu ngon, bò viên dai dai sực sực ăn rất đã. …",2025-11-30T08:42:22Z
+11029,61,324,5,"Quán có Phở và Mì/Hủ tiếu Sa tế (nước súp dạng đậu say nhuyễn)
+Phở nước dùng vừa vị không ngọt, không mặn, thanh và không bị bột ngọt. Tô phở chất lượng, rổ rau sạch nhiều loại. Có tái, gân, nạm, viên. Viên là loại viên …",2025-11-30T08:42:22Z
+11030,15,324,1,"Đồ ăn bình thường và ngồi vỉa hè mà giá như cắt cổ, gì mà 70k 1 tô như tô 35-40k. Tương ớt hãng rẻ, không có cả giấy lau đũa muỗng. Quá chán.",2025-11-30T08:42:22Z
+11031,7,325,5,"Buổi tối 14/11/2025 thì mình có tới đây trải nghiệm thử cùng với người yêu. Cảm nhận cá nhân như này (Không seeding, booking hay chọc phá, đá chén cơm của ai, chỉ đơn giản là muốn được đưa ra ý kiến cá nhân): …",2025-11-30T08:42:22Z
+11032,26,325,5,"Quán này mình tìm trên gg map, nhưng phải nói là ngoài sức mong đợi!
+
+Mình vs bạn gọi phở gà với bún thang, rất ngon hợp khẩu vị 2 đứa, topping nhiều, …",2025-11-30T08:42:22Z
+11033,4,325,5,"Quán rộng, sạch , bàn ghế thoải mái
+Nhân viên niềm nở, lịch sự
+Quán chuyên các món Gà như Phở Gà, Miến Gà .. Cơm gà …",2025-11-30T08:42:22Z
+11034,22,325,5,"Mình ăn 2 tô miến gà và bún măng mọc đặc biệt, nước ngon dịu ngọt (k phải do bột ngọt, do minh dị ứng bột ngọt) rất dễ ăn cho dù là ng miền trung hay miền nam, sợi miến thì chưa dc như ngoài bắc, mấy bạn nhân viên mới hơi vô tri xíu do ord sai món cho mình, quán rộng rãi bãi xe dễ để",2025-11-30T08:42:22Z
+11035,38,325,5,"Đã ghé qua vài lần và thích quán vì sự sạch sẽ, chỉn chu, có bàn ngồi ngoài cửa rất thoáng mát. Mình thường đặt qua app món bún thang để ăn sáng. Vị miền Bắc nên bún, phở đều thanh nhạt, đúng sở thích của mình. Giá thì cá nhân mình thấy phù hợp.",2025-11-30T08:42:22Z
+11036,48,326,5,"quán phở gà lâu đời, khá nổi tiếng ở trung tâm Sài Gòn.
+• Món ăn: Phở gà thơm ngọt, nước dùng trong veo, vị thanh, ăn kèm hành tây lát mỏng rất hợp. Ngoài phở còn có xôi gà, bún gà, miến gà… Xôi gà thịt chắc, dẻo …",2025-11-30T08:42:22Z
+11037,70,326,4,"-Menu đa dạng. Mình gọi xôi xéo đặc biệt (gà và chả)
+- Xôi nóng dẻo, thịt gà dai, da giòn. Chả chiên thơm. Trên bàn có một hũ nhỏ đựng lá chanh cắt nhuyễn, bỏ vô ăn kèm với xôi rất thơm (mặc dù lá chanh để ăn kèm …",2025-11-30T08:42:22Z
+11038,80,326,5,"Một ngày đẹp trời đi thử món phở, mình vô tình ghé quán. Vào quán thì thấy Menu đa dạng, bắt đầu từ 50k/tô phở. Quán chuyên về phở gà, ngoài ra cũng có phở bò, phở xào hoặc phở trộn (không nhớ rõ)… …",2025-11-30T08:42:22Z
+11039,52,326,5,"Quán có menu đồ ăn và nước uống đa dạng, chủ yếu là hương vị Bắc. Giá phải chăng, không gian rộng và thoáng. Phục vụ nhanh",2025-11-30T08:42:22Z
+11040,13,326,4,Chuyên món ăn hương vị Bắc. Thức ăn ngon. Phục vụ nhanh. Quán thoáng đãng,2025-11-30T08:42:22Z
+11041,18,327,5,"- Đồ ăn: nước dùng thanh, thịt gà mềm lắm, trứng non siêu ngon còn mọng nước bên trong chứ không bị khô queo í. 10/10 luôn
+- Không khí: mình ăn lúc 7:40 tối không quá đông, có chỗ gxe máy bên hông nhà ngay m hẻm nhỏ.",2025-11-30T08:42:22Z
+11042,72,327,5,"Mình mới ăn xong
+Nước phở thơm, trong, ngọt. Thịt gà dai ngon, da giòn. Với mức giá 65k cho 1 tô phở gà xé trứng non thì mình đánh giá là xứng đáng. +1 quán yêu thích 🤩
+Note: gà cũng khá nhiều nha, do mình mua đem về đổ ra tô nên thịt nó lặn xuống dưới á :)) …",2025-11-30T08:42:22Z
+11043,69,327,4,Chạy ngang thấy quán ghé ăn thử gọi phần Phở  Gà 55k nước dùng thanh ngon vừa ăn gà ngon da giòn dai rau tươi tương ớt có tương ớt bắc ớt  chanh tươi tỏi ngâm giòn 55k tương đối không rẻ không mắc …,2025-11-30T08:42:22Z
+11044,78,327,5,Tuyệt vời khi đến đây sáng 1  lần tối ghé tiếp cùng con gái rất ngon,2025-11-30T08:42:22Z
+11045,22,327,4,"Phở gà gốc Hà nội hương vị quận 10  ! Lai kiểu Miền Nam nhiều rồi.
+
+Nước dùng Phở thanh trong, ngọt… Miến gà, lòng gà tươi ngon. …",2025-11-30T08:42:22Z
+11046,86,328,5,"Phở Nhất Vị – Minh Khai (gần Tôn Thất Tùng)
+
+Chiều tầm 15h mình ghé quán, lúc này quán khá vắng nên ngồi thoải mái. Không …",2025-11-30T08:42:22Z
+11047,56,328,5,"Trên đuờng đi làm thấy quán sạch sẽ, sáng sủa nên ghé thử
+Mình gọi 1 phần Phở Gà. Nước phở cực ngon, nước ngọt từ xương hầm, có vị béo của mỡ Gà. Quán dùng thịt Gà ta nên thịt chắc. …",2025-11-30T08:42:22Z
+11048,49,328,5,"Menu đa dạng để thực khách lựa chọn, quán phục vụ chuyên nghiệp, hương vị ngon với tên Nhất vị, ráng đáng để trải nghiệm .",2025-11-30T08:42:22Z
+11049,98,328,5,"Quán sạch sẽ, được chăm chút kỹ lưỡng cod cả giới thiệu nguồn gốc thịt bò và quy trình sản xuất nữa, rất uy tín, nên thử nha",2025-11-30T08:42:22Z
+11050,48,328,4,Quán sạch sẽ nhân viên nhiệt tình phở ăn no vị 70% vị bắc,2025-11-30T08:42:22Z
+11051,38,329,5,"Đi ăn 2 lần rồi và thấy rất okeee lun. Đồ ăn ngon, nêm nếm vừa miệng, cơm gà hay phở gà đều chất lượng. Giá cả hợp lý, khẩu phần đầy đặn, ăn no và đáng tiền. Không gian quán sạch sẽ, thoáng mát, phục vụ nhanh và dễ chịu. Mình sẽ còn ghé lại hoài hoài kkk quá là mê",2025-11-30T08:42:22Z
+11052,19,329,5,"Đã dùng thử Cơm gà nướng, Cơm gà luộc, Phở Bò tái và Phở gà tại quán đều rất ngon. (Lo ăn quá quên không chụp ảnh minh hoạ).
+Anh chủ quán vui vẻ và nhiệt tình.",2025-11-30T08:42:22Z
+11053,6,329,5,"Quán cơm bình dân nhưng chất lượng thì không hề bình dân chút nào!!! Mình đã ghé quán 2 lần và lần nào cũng hài lòng. Cơm gà nướng và phở gà đều rất ngon, chất lượng, món nào cũng đậm vị và nóng hổi. Không gian quán thoải mái, mát mẻ, ngồi …",2025-11-30T08:42:22Z
+11054,35,329,5,"Cơm gà nướng, phở gà quá ngon, anh chủ nhiệt tình",2025-11-30T08:42:22Z
+11055,71,329,5,Bữa ăn ngon và dịch vụ tuyệt vời. Rất đáng để thử.,2025-11-30T08:42:22Z
+11056,7,330,4,"Vị k còn như trước, có nhân sự quán chưa sẻ là mn mỗi khác, đậu xe ô tô khó",2025-11-30T08:42:22Z
+11057,74,330,5,"Mình đi 3 người, kêu 3 tô miến không, 1 đĩa gỏi to chà bá nhưng gỏi trộn vừa ăn, gà ngon da giòn, ban đầu nhìn đĩa gỏi sợ ko ăn hết nhưng vì ngon nên 3 người ăn sạch trơn. Miến cũng ổn. À nước sâu thì ngọt quá, mùi mật đường át cả mùi sấu và cũng ngọt quá, mình nghĩ mọi người ko nên gọi món nước này.
+Tổng 260k",2025-11-30T08:42:22Z
+11058,36,330,3,"Miến và phở gà trung bình 45-60k
+Quán lẩu gỏi ko kèm cháo hay miến. Mà bán thêm cháo và miến ko 1 tô 20k. Cũng ko báo trước đến tính tiền mới nói …",2025-11-30T08:42:22Z
+11059,61,330,4,"Món gỏi gà rất ngon, vị lạ, nhiều hành phi ăn vào giòn, chua ngọt, thịt gà mềm, thơm. Miến mềm, gà mềm dễ ăn. Tuy nhiên nước lèo hơi mặn, thích hợp cho người ăn đậm đà. Quán không chú trọng dịch vụ lắm nên nhân viên giao tiếp hơi thờ ơ, chanh ớt bị khô không thay mới. Mình gọi tô miến gà giá 40k, gỏi gà nhỏ 60k",2025-11-30T08:42:22Z
+11060,4,330,4,"Hồi sinh viên hay ăn ở Mạc Đĩnh Chi
+Ăn đây được 1 lần, nhìn chung cũng ok. Miến gà xé và gỏi ổn.
+Nhưng không gian ở đây hơi nóng và không được chỉnh chu lắm, nên cảm giác không quá sạch sẽ.",2025-11-30T08:42:22Z
+11061,54,331,5,"Mỗi sáng đi làm ngang qua đều thấy quán có một lượng khách sẽ đông như hôm nay có trải nghiệm thử.
+Mình lựa chọn món phở Thái Lan vì đây là một trong những món thường ít có quán …",2025-11-30T08:42:22Z
+11062,25,331,5,"Phở ở đây đậm đà, thịt gà ta dai và thơm kỳ lạ lắm. Ăn hai lần ở đây mới hiểu đuợc tại sao đông khách mặc dù giá có hơi cao. Tất cả gia vị ở đây đều tiêu chuẩn quốc tế và tươi ngon. Thật sự đây mới là nơi để thưởng thức phở, quá nhiều món để lựa chọn",2025-11-30T08:42:22Z
+11063,69,331,5,"Đúng như lời đồn, tôi đến lần nào cũng đông khách. Phở ở đây rất nhiều loại và món nào cũng ngon, đặc biệt nước lèo ở đây rất đậm đà và chất lượng, món nước tiết hột gà là món tôi hay ăn. Chất lượng cao giá cả tuy có hơi cao nhưng cũng hợp …",2025-11-30T08:42:22Z
+11064,85,331,5,"Giờ tôi mới hiểu tại sao Phở Mong nhiều khách hàng là trẻ em và người nước ngoài vậy! Vì nước phở ở đây rất ngon, hương vị nhẹ nhàng không hắc mùi hồi và khắm mùi nước mắm như nhiều nơi khác. Giá có hơi cao nhưng nhiều thịt và thịt ở đây …",2025-11-30T08:42:22Z
+11065,64,331,5,"Lần đầu tiên ăn phở HN ngon đến vậy, nước dùng thơm ngậy nóng tút, thịt chín mềm thơm vị bò, rau thơm và gia vị nhiều, toàn thương hiệu nổi tiếng. Quán rộng rãi thoáng mát, nhân viên nhẹ nhàng tình cảm. Tôi rất thích phở nạm và phở gầu ở đây. Chất lượng cao giá cũng tạm ổn",2025-11-30T08:42:22Z
+11066,90,332,5,"mình được bạn dẫn đến đây xong thì trở thành ""dân ghiền"" của quán luôn😁không gian quán ngồi ngoài hẻm nhưng không ồn ào, ăn uống thấy thoải mái dễ chịu, cô chú lấy order và ra món nhanh lắm, hướng dẫn mình order cũng rất nhiệt tình, dù là …",2025-11-30T08:42:22Z
+11067,10,332,5,"Tới ăn vào một ngày mưa tháng 9. Cho quán tổng điểm 9/10.
+
+1/ Thức ăn: Mình gọi Phở chua thường, Bánh giò đặc biệt và nước sâm …",2025-11-30T08:42:22Z
+11068,28,332,5,Gần 20 năm nay gắn bó với món ăn này và chứng kiến quán phát triển từng thời điểm. Vị chua ngọt của nước sốt làm món ăn thêm hương vị và đậm đà. Món ăn đã tạo nên hương vị riêng của mình và đã chinh phục những thực khách kể cả khó tính nhất.,2025-11-30T08:42:22Z
+11069,81,332,4,"Dc biết quán từ thời sinh viên, chắc cũng hơn 20 năm rồi, thi thoảng có dịp lại ghé. …",2025-11-30T08:42:22Z
+11070,33,332,4,"nếu bạn nghe phở chua trộn thấy lạ lẵm, thì đến đây thử i :)) là 1 trải nghiệm thú dị ó, ngoài phở trộn còn có bánh dò cũng yummy á mình thường mua mang về thêm để ăn khuyaa",2025-11-30T08:42:22Z
+11071,27,333,5,"Quán ruột, miến phở đều ngon, ngon nhất là phở trộn, thịt gà dai, nước dùng ngọt thanh, rau tươi sống",2025-11-30T08:42:22Z
+11072,55,333,5,"Quán chuẩn Hương Vị Bắc, mọc rất ngon dai, đáng thưởng thức sẽ ghé lại.
+Tô đăc biệt đầy đủ topping Giá 75k/ 1 Phần.",2025-11-30T08:42:22Z
+11073,82,333,5,"Phở ngon, miến ngon thịt gà ta chắc, nước dùng vừa vị, chuẩn vị Bắc, giá hợp lý tại trung tâm.",2025-11-30T08:42:22Z
+11074,97,333,5,Quán ruột mình chỉ thích ăn mỗi phở gà:)),2025-11-30T08:42:22Z
+11075,84,333,5,"Địa chỉ chính xác ở số 6 Bùi Thị Xuân nhé, nên sửa lại kẻo đi lộn.
+
+Khu vực chuẩn vị, chế biến sạch sẽ, không gian nhỏ và ít bàn. Cô chủ đứng làm …",2025-11-30T08:42:22Z
+11076,31,334,2,"Tô đặc biệt giá 100k so với phở Hoà Pasteur 110k,  thì: Thêm 10k là sự lựa chọn hợp lý. Hương vị tầm trung; dịch vụ thì Custom severce rất ư là phong cách địa phương hẻm nhỏ",2025-11-30T08:42:22Z
+11077,56,334,4,"Phở ăn ổn, thịt cắt dọc sớ nên cảm giác hơi dai. Nước dùng vừa vị. Chấm tổng thể 8,5/10
+Phục vụ tốt, ai cũng vui vẻ niềm nở, đặc biệt là cô thu tiền 😁 …",2025-11-30T08:42:22Z
+11078,57,334,3,"Lần đầu ăn phở SG, thú thật là mình thấy món này khác hoàn toàn phờ bắc nên cũng không thể so sánh được. Nước dùng đậm đà, hơi ngọt so với khẩu vị của mình nhưng cũng ngon, cô chú chủ quán thân thiện dễ thương. Giá bát phở 80k ở quận 1 thì …",2025-11-30T08:42:22Z
+11079,40,334,5,"Phở thơm ngon lắm. Mùi phở Nam ký ức. Thịt mềm, miếng nào giòn thì giòn, miếng nào mềm ngon thì mềm ngon.",2025-11-30T08:42:22Z
+11080,97,334,4,"Quán chỉ bán buổi sáng, có chỗ đậu xe máy, xe oto hơi khó tìm chỗ đậu. Không gian mở thoáng mát, có rất nhiều bàn, rau giá khá ổn. Có rất nhiều lựa chọn nạm, vè, gầu, gân v.v... Tô phở giá 80K nhưng hơi ít, sức thanh niên ăn chưa đủ no.",2025-11-30T08:42:22Z
+11081,5,335,5,"7:00 19/09/25
+Quán có mấy bàn bên hẻm rất rộng và ..khá sạch!
+Menu đầy đủ,phần bò ko có gàu và vè …",2025-11-30T08:42:22Z
+11082,14,335,5,"Phở và bò kho đều cực phẩm, đặc biệt gầu rất ngon. Giá cả rẻ so với vị trí",2025-11-30T08:42:22Z
+11083,17,335,4,"Quán gần nhà mà ít ăn, lần này thấy quảng cáo nhiều, quán cũng đông nên ghé lại ăn …",2025-11-30T08:42:22Z
+11084,38,335,4,"- quán phở ngồi trong hẻm yên tịnh thoải mái sạch sẽ
+- vị vừa ăn giá cả bình dân hợp lý
+- mình ăn 2 tô thập Cẩm ( thắc mắc thập Cẩm sao ko có bò viên)+ tiết hột gà + …",2025-11-30T08:42:22Z
+11085,12,335,5,"Phở ngon nhen, tầm khoảng 50k 1 tô. Ngồi ở bên hông nhà nhen. Ở trước đó có nước mía ngon luôn, giá cả nước mía cũng phải chăng. Mà tô mình cho hành hơi nhiêu nha. Mình ăn qua buổi trưa nên là hết nhiều thứ, còn mỗ gân sụn bò viên thoi.",2025-11-30T08:42:22Z
+11086,75,336,5,"Quán phở thơm ngon, nước dùng trong và đậm vị, thịt bò mềm, bánh phở dai vừa phải. Không gian sạch sẽ, phục vụ nhanh nhẹn và thân thiện. Giá cả hợp lý so với chất lượng. Điểm trừ nhỏ là quán hơi đông vào buổi sáng nên phải chờ bàn, nhưng rất đáng để quay lại.",2025-11-30T08:42:22Z
+11087,91,336,5,"Quán nằm trong hẻm trên đường Nguyễn Đình Chiểu. Không gian thoáng, thoải mái, chỗ ngồi sạch sẽ. Tô phở bình thường giá 50k. Thịt ngon mềm, nước béo đậm đà.",2025-11-30T08:42:22Z
+11088,83,336,3,"Ăn bình thường, bò ít, trong hẻm mà giá  50k mắc",2025-11-30T08:42:22Z
+11089,100,336,5,Very good phở bò in Saigon.,2025-11-30T08:42:22Z
+11090,43,336,5,"Quán ngon, không gian kiểu vỉa hè khá ok. Thịt bò mềm thơm, nước dùng kiểu miền nam. Phục vụ nhiệt tình, dễ thương Sẽ quay lại.",2025-11-30T08:42:22Z
+11091,39,337,3,"Chạy ngang thấy quán ghé ăn thử gọi tô phở Gà Đen 60k nước dùng nhạt thịt gà bình thường quán sạch ngồi hơi nóng
+Phở Gà Đen Hợp 60k 678 Điện Biên Phủ phường 11 Quận 10 bán từ 6h-21h …",2025-11-30T08:42:22Z
+11092,9,337,5,"07:10 14/11/24
+Quán hơi nhỏ,bù lại nv rất ân cần,sắp xếp chỗ đậu xe,tư vấn gọi món…
+Vệ sinh tốt …",2025-11-30T08:42:22Z
+11093,61,337,3,Tạm được. @,2025-11-30T08:42:22Z
+11094,27,337,5,"Mì gạo Ogolgye ở đây có giá 60.000 won, nhẹ và ngon.",2025-11-30T08:42:22Z
+11095,27,337,5,,2025-11-30T08:42:22Z
+11096,94,338,5,"- Không gian quán: Rộng, đẹp, thoáng, sạch sẽ, cũng là điều mình cực kỳ ấn tượng. …",2025-11-30T08:42:22Z
+11097,74,338,5,"🍜 Phở chỗ này tuyệt ngon! Ko biết phải do cái menu ""nhấn mạnh"" chỗ bò Úc tạo ấn tượng tâm lý ban đầu ko mà gắp miếng thịt bò nào dù là sườn hay nạm, gầu bỏ vô miệng cũng đều thấy thơm, mềm muốn tan ra luôn kkk. Quán có đầy đủ sườn, đuôi, …",2025-11-30T08:42:22Z
+11098,32,338,5,"Một trong những quán phở ngon tại Sài Gòn, mọi người nên thử! (Nhà mình ăn liên tục 2 ngày để thử hết các vị phở bò & phở gà ở đây!?!) …",2025-11-30T08:42:22Z
+11099,28,338,5,"Ở sài gòn không thiếu quán phở, nhưng phải nói ngay trung tâm quận 3 lại có một quán phở vừa ngon, không gian vừa rộng thích hợp cho gia đình 4 ng trở lên và trẻ nhỏ, nhân viên nhanh nhẹ, đợi lên món tầm 5-10p, bếp mở nên họ làm chỉnh chu, …",2025-11-30T08:42:22Z
+11100,88,338,5,"Phở bò ok, 8/10
+Sườn bò ngon, mềm, nước dùng rất đậm ko hợp lắm
+Gà ta bình thường, hơi khô, giá cao
+Quán hơi hầm dù ban đêm",2025-11-30T08:42:22Z
+11101,36,339,5,"Quán đối diện HTTL Sài Gòn có bán bún thang ngon giá 60k/tô, topping nhiều thịt gà, trứng, chả...nếu có thêm chút mắm tôm sẽ đúng vị hơn. Trà đá miễn phí. Sẽ ghé lại lần sau để thử các món khác",2025-11-30T08:42:22Z
+11102,58,339,3,"- Phở bò tái lăn: giá 60k, bò tái lăn được làm mới khi đặt món, nước phở dùng chung cho các loại bún phở thì phải. Vị thơm ngon tạm được.
+- Quán ngay góc đường, ngồi vỉa hè, tầm 10 bàn. Cảm giác vào quán ăn mà nó không …",2025-11-30T08:42:22Z
+11103,2,339,4,"Vào quán thấy chả có menu chỉ có thấy trên tường có hình ảnh mấy món minh hoạ mà cũng chẳng có giá, hơi khớp, sợ bị chặt chém. Gọi 1 tô bún mọc, 1 tô bún thang, thêm 3 cái quẩy thì tính 120k; không có bill cũng không thấy nói giá bao nhiêu …",2025-11-30T08:42:22Z
+11104,28,339,4,"Hôm nay tôi đã có cơ hội thưởng thức món bún thang lươn và tôi thực sự ấn tượng bởi hương vị độc đáo và hấp dẫn của món ăn này. Được trình bày trong một bát lớn, bún thang lươn mang đến một trải nghiệm ẩm thực đặc sắc và đáng nhớ. …",2025-11-30T08:42:22Z
+11105,96,339,4,"Quán ngồi ngoài trời ngắm đường phố cũng khá vui.
+
+Giá cả thì ở mức mặt bằng chung dù quán nằm ở mặt bằng, 2 phần bún chả với bún …",2025-11-30T08:42:22Z
+11106,25,340,3,"Mình ghé quán vào lúc 7h sáng và đây là trải nghiệm của mình khi lần đầu dùng bữa sáng tại đây:
+Không gian: Quán sạch sẽ, có máy lạnh nên khá mát mẻ, nhiều chỗ ngồi. …",2025-11-30T08:42:22Z
+11107,38,340,4,"Phục vụ tốt,quán sạch sẽ thoải mái.
+Tuy nhiên nước lèo nguội và mặn ko còn ngon như xưa.
+Chén trứng mà nước nguội ăn mất ngon.",2025-11-30T08:42:22Z
+11108,71,340,1,"Combo 2 đồ ăn 1 nước không có miếng rau nào luôn, cũng không có bịch nước chấm không có muỗng đũa không có khăn lau, không có gì hết lấy cái gì mà ăn. Đặt hàng trên shopee food nhiều lần lắm rồi mà giờ bị vậy, gọi cho shipper thì bảo quán làm sẵn chỉ tới lấy thôi. 😩😟 …",2025-11-30T08:42:22Z
+11109,45,340,5,Đồ ăn được nhưng mà chờ hơi lâu! Mong quán cải thiện.,2025-11-30T08:42:22Z
+11110,34,340,2,"Mình đến kêu tô phở nạm viên mà bưng ra tô phở có vài 3 miếng thịt, trong miếng thịt thì toàn mỡ. Vì mình ko ăn mỡ nên nói em phục vụ đổi nạm nạc dùm, em đó nói bên em chỉ có thịt này thôi. Ko bao giờ ghé ăn nữa, thà ăn phở Lệ tuy mắc hơn nhưng miếng thịt to, thịt nhiều.",2025-11-30T08:42:22Z
+11111,30,341,4,"- Phở ở đây đúng kiểu Bắc nha: tương ớt Bắc, quẩy giòn, 2 vợ chồng chủ quán cũng là người Bắc luôn. Cũng có chút xíu thay đổi cho hợp khẩu vị miền Nam hơn (ví dụ như có tương đen hehe). …",2025-11-30T08:42:22Z
+11112,23,341,5,Ngon,2025-11-30T08:42:22Z
+11113,93,341,1,,2025-11-30T08:42:22Z
+11114,41,342,4,"Đồ ăn chắc cũng ổn áp, vừa miệng. Hơi ngọt so với mình, được cái có chén muối ớt pha lại
+Mình muốn ăn gỏi đùi gà …",2025-11-30T08:42:22Z
+11115,66,342,5,"1 con gà + gỏi + cháo, gỏi cho rất nhiều, nước mắm được đóng trong hũ nhựa nên sạch sẽ, chỉn chu. Gà dai, thịt chắc ăn ngon",2025-11-30T08:42:22Z
+11116,70,342,3,"quán này bán đã khá lâu từ thời chủ là gia đình ca sĩ Bảo Anh, nhưng khoảng ba năm trở lại đây quán đã đổi chủ.
+Gia đình mình thường ăn chỗ này, gà ăn được gỏi bóp ngon, giá cả cũng bình dân. …",2025-11-30T08:42:22Z
+11117,96,342,1,"Mua 1 phần cháo + đùi 60k về bị tiêu chảy 1 ngày trời (mình chỉ ăn cháo và gà, ko động tới rau và nước chấm luôn). Quá sợ. Yêu cầu đội an toàn vệ sinh thực phẩm kiểm tra cơ sở này.",2025-11-30T08:42:22Z
+11118,96,342,1,"CỰC KÌ TỆ về thái độ của nhân viên! Vào order món mặt quạo vọ cau có, ăn nói trống không. Đúng kiểu con người mất lịch sự vô cùng lun đó. Đề nghị quán nên xem lại nhân viên của mình. …",2025-11-30T08:42:22Z
+11119,85,343,5,"Ngon tuyệt luôn! Chuẩn vị Hà Nội, vào HCM vài tháng, nay mình đã tìm được quán ăn ưng ý, đúng kiểu vị bắc 🥰 10đ cho quán 😊 …",2025-11-30T08:42:22Z
+11120,94,343,5,"Quán làm đồ ăn ngon , rất là chuẩn vị hà nội , nhân viên quán phục vụ tốt , nhanh nhẹn , không gian cũng thoáng mát và sạch sẽ , có thời gian rảnh mình sẽ lại ghé quán để ủng hộ tiếp , mong quán ngày càng phát triển và được mọi người biết đến nhiều hơn",2025-11-30T08:42:22Z
+11121,40,343,5,"Mình biết quán Phở Gà Tata khi ghé ăn quán Nép SaiGon, cảm nhận vị thanh kg béo, gà ngon có độ giòn kg bị mềm. Có dịp mình sẽ ghé thưởng thức phở trộn nghe nói siêu ngon ăn cuốn lắm. Highly recommended.",2025-11-30T08:42:22Z
+11122,98,343,5,"Phở ngon, quán sạch sẽ, vị kiểu Hà Nội, trinhf bày đẹp. Nhưng hôm mình ăn thì nước hơi nhạt, hi vọng quán cải thiện nước đậm đà hơn.",2025-11-30T08:42:22Z
+11123,73,343,5,"Cả phở trộn và phở nước đều rất ngon. Phở trộn k thua kém phở gà nguyệt phủ doãn luôn
+Thịt gà thơm. Đến đây đặc biệt phải ăn mọc và trứng non
+Nhà mình 2 ng ăn mà ăn hết từng này luôn vì quá ngon",2025-11-30T08:42:22Z
+11124,27,344,4,"Vị trí quán nằm trên 1 con đường vắng xe, rất thuận tiện di chuyển. Không gian quán phải nói là rộng rãi, sáng sủa và sạch sẽ; bàn ghế bày trí cách nhau đủ khoảng cách để đi lại. Thực đơn xoay quanh 2 món là bún bò Huế và phở, đặc biệt có …",2025-11-30T08:42:22Z
+11125,69,344,5,"Phở trộn lạ và hấp dẫn, giá sạch kèm bánh quẩy giòn rụm. Gần công ty mình nên rất thường đến ăn 😊
+Giá hơi chát nhưng được cái phục vụ nhanh, sạch sẽ và thoáng. …",2025-11-30T08:42:22Z
+11126,22,344,3,"Phở khá ok, nước dùng vừa phải không quá ngọt, mình gọi phở chín thì hơi nhiều mỡ. Có nhiều mức giá tuỳ size. Thấy menu trên Google Map có cả bún bò nhưng qua quán ăn thì không thấy. Không gian rộng, sạch sẽ, có chỗ để xe. Nhân viên phục vụ …",2025-11-30T08:42:22Z
+11127,28,344,5,"Cửa hàng sạch sẽ chỉnh chu.
+Nhân viên nhiệt tình, năng động
+Có khử khuẩn mỗi khi khách dùng xong. …",2025-11-30T08:42:22Z
+11128,17,344,4,"- Vị trí: thuận tiện, có chổ để xe, gần BV Q4
+- Chất lượng: tạm ổn, vị phổ thông, topping không quá nhiều, gia vị chêm đầy đủ
+- Dịch vụ: ổn, đáp ứng đủ nhu cầu
+- Không gian: rộng rãi, không quá sạch",2025-11-30T08:42:22Z
+11129,26,345,4,Quán bán các món ăn hương vị bắc. Mình ghé ăn bánh cuốn truyền thống. Khi mình gọi thì quán mới làm nên bánh cuốn mang ra còn nóng. Nước mắm chua ngọt pha theo kiểu Bắc.,2025-11-30T08:42:22Z
+11130,11,345,5,"- Mình rất thích 1 vài món của miền bắc nhưng khó để tìm đc quán ăn có vị miền bắc.
+- Bửa đi bộ gần khu vực này thấy nên vào luôn. Vị trí quán gần rạp phim. …",2025-11-30T08:42:22Z
+11131,5,345,3,"Chỗ ngồi mát mẻ, nem cua bể ngon, chả viên nướng ngon, có điều chả miếng vị ướp giống thịt kho, nước dùng hơi chua quá. Bún chả không chuẩn vị Bắc nhưng nước sâm chuẩn vị Bắc nha =))) ngon mátttt. Tổng bữa 160k",2025-11-30T08:42:22Z
+11132,84,345,5,"Các món ăn ở đây rất chỉnh chu, ngon và giá quá là hợp lý với phố chính ở quận 1. Các bạn đi du lịch nên ghé đây. Các món vị bắc chuẩn vị nè. Ngon lắm",2025-11-30T08:42:22Z
+11133,27,345,3,"Do gần rạp chiếu phim nên mình ghé ăn thử sẵn tiện coi film luôn.
+Mình gọi 1 phần bún đậu đầy đủ như hình là 80k, giá này với mình khá cao, đậu hủ không giòn, nem chua chiên hơi cháy, thịt luộc ở đây thì đã bỏ phần da, mắm tôm với mình mặn nhiều",2025-11-30T08:42:22Z
+11134,84,346,2,"Mình là người bắc cảm nhận hương vị bún thịt miếng ko ngon không có vị thơm đặc trưng. TOÀN THỊT 3 CHỈ NÊN RẤT MỠ. Sử dụng thịt đông lạnh, nướng ở mức độ chín chứ ko phải là xém cạnh. Hình ảnh ở menu thịt để riêng, Nhưng đem lên cho khách thì để chung trong nước chấm, cảm giác nhìn dầu mỡ rất ngán.",2025-11-30T08:42:22Z
+11135,57,346,4,"Ngon sạch sẽ rau sạch cực kì ngonn nước mắm k bị ngọt gắt thịt nướng vừa chín tới
+Rauu sạch nữa mà lúc mình đi bị vắng á
+Mọi ng rất nên ăn trưa và ăn tối nhe",2025-11-30T08:42:22Z
+11136,39,346,5,"Quán khá sạch sẽ ngăn nắp. Từ chi nhánh Tân Bình đến Q1 đều sạch, tươm tất. Thịt nướng mềm thơm, lát mỏng thấm vị, nước mắm ngon, đu đủ chua ngọt ăn kèm đỡ ngấy. Rau xin thêm thoải mái k tính tiền. 1 phần bún chả 60k, nem rán 19k, ăn bao …",2025-11-30T08:42:22Z
+11137,27,346,5,"Quán nằm ngoài mặt tiền nên dễ nhìn thấy, đồ ăn ngon - sạch sẽ - lên món rất nhanh - giá hợp lý nhưng không hiểu sao vắng quá. Mong mọi người ủng hộ quán nhiều hơn nha chứ ngon lắm á",2025-11-30T08:42:22Z
+11138,60,346,4,"Quán chỉ còn cái danh tiếng
+Thức ăn bình thường
+Nhân viên phục vụ chậm, gọi mấy lần mới có món thêm",2025-11-30T08:42:22Z
+11139,46,347,5,"Không gian rất rộng rãi, thoáng mát, bài trí hợp lý và được lau dọn kĩ càng.
+Bún chả ăn rất ngon và giá cả hợp lý, phần bún chả cơ bản cũng rất nhiều.
+Nhân viên phục vụ nhanh, tận tình.",2025-11-30T08:42:22Z
+11140,18,347,1,"Mình ăn rau lớp trên không có gì, đến phần dưới khi sắp hết thì có cây tăm xuyên trong lá rau, gọi nhân viên thì nói là “rau mới mà, sao kì vậy” rồi cũng không giải thích gì thêm và cũng không làm gì khác. Nhưng thật bất thường vì sao có …",2025-11-30T08:42:22Z
+11141,60,347,5,"Quán sạch sẽ, thoáng. Đồ ăn ok, rau rửa sạch, nhân viên vui vẻ nhiệt tình. Có dịp sẽ ghé lại ủng hộ tiếp",2025-11-30T08:42:22Z
+11142,12,347,5,"Ngon, sạch sẽ, Mình đã ghé rất nhiều lần, đây là quán bún chả tủ của mình mỗi lần muốn ăn 😝 …",2025-11-30T08:42:22Z
+11143,36,347,1,Tập thể nhân viên quán thái độ phục vụ tệ vô cùng 😇 Phần ăn của bàn mình đã làm xong đặt trên quầy bếp nhưng cả 3 nhân viên (2 bạn đứng ngay đó và 1 bạn khác) đều cười nói và không ai bưng. Tụi mình nhắc 2 lần thì bạn mới tới bưng ra xong …,2025-11-30T08:42:22Z
+11144,69,348,5,"Quán sạch sẽ,nấu ăn ngon.",2025-11-30T08:42:22Z
+11145,35,348,5,Món sứa giòn và ngon do thực phẩm tươi sống. Giá cả phải chăng.,2025-11-30T08:42:22Z
+11146,65,348,5,"Quán ăn ngon, giá bình dân. Sẽ ủng hộ tiếp",2025-11-30T08:42:22Z
+11147,87,348,5,"Quán ăn ngon, sạch, giá bình dân, ông chủ vui tính kute 👍👍👍👍👍👍 …",2025-11-30T08:42:22Z
+11148,85,348,5,Đồ ăn ngon.sứa tươi và có độ dòn .nước dùng nêm nếm cũng ok.mọi người nên đến dùng thử 1 là để cảm nhận nhé,2025-11-30T08:42:22Z
+11149,21,349,2,"Món bún chả tại khu Bùi Viện chưa thực sự ngon như kỳ vọng. Nước mắm pha khá ngọt, chưa cân bằng giữa chua - mặn - ngọt …",2025-11-30T08:42:22Z
+11150,39,349,5,"Đầu tiên tôi nói về chất lượng như mấy bà, một phần như ảnh khá nhiều luôn, có thể là quán bún chả ngon nhất tôi từng ăn, mắm ở đây cũng rất ngon thịt cũng rất ngon, …",2025-11-30T08:42:22Z
+11151,31,349,5,Rất ngon nha mọi người . 1 phần đầy đặn ăn no lăm luôn 😘 quán hơi nhỏ nhưng có mấy tầng nên ok nè …,2025-11-30T08:42:22Z
+11152,10,349,5,"Tôi đến quán ăn vào buổi chiều tối với bạn, có bàn liền không phải chờ đợi. Quán có không gian nhỏ nhưng ấm cúng. Tọa lạc trên con đường Đề Thám đông đúc, trong khu vực sầm uất đặc biệt dành cho khách du lịch nước ngoài nhưng giá cả không đắt. Món ăn ngon hợp khẩu vị, chuyên các món bún chả và nem rán hương vị miền Bắc.",2025-11-30T08:42:22Z
+11153,8,349,5,"Quán này ngon nha mng, lâu lâu đi khám phá quán trên grab. Bth mình hay oder nay qua tận quán. Confirm là ngon thiệt á",2025-11-30T08:42:22Z
+11154,74,350,5,"Lần đầu ăn ở đây, chạy ngang góc đường này hoài, bây giờ mới ghé ăn. Ăn sạch sẽ và ngon, nước chấm rất đặc biệt.
+Tôi nhờ cô chỉ cách pha nước chấm sao cho ngon nhất. …",2025-11-30T08:42:22Z
+11155,59,350,5,"Quán mở bán 6:00-22:00. Menu như hình. Tô mình ăn 75K thập cẩm hơi mắc xíu so với các bữa ăn mình hay ăn trong 1 ngày khi ăn ngoài (35-50K/phần) nhưng chất lượng rất ổn vì topping tươi ngon, nước dùng cũng ngon hợp vị mình …",2025-11-30T08:42:22Z
+11156,89,350,5,"Chỗ này ăn ngon, đồ ăn cũng tương xứng với giá tiền nha, topping. Giá có trên menu nên mọi người có thể tham khảo. Có cái hanh tím ngâm ngon. Nhìn chung quán sạch sẽ, nhân viên cũng dễ thương. Có anh giữ xe thấy nắng nóng nên xịt nước cho mát. Mình sẽ quay lại.",2025-11-30T08:42:22Z
+11157,85,350,5,✨ Đánh giá Nem Nướng Nha Trang Yến – Ẩm thực đậm vị biển Nha Trang giữa lòng Sài Gòn …,2025-11-30T08:42:22Z
+11158,41,350,5,"Hôm nay mình đi công việc và có dịp ghé quán Nem Nướng Nha Trang – 412 An Dương Vương và gọi món bún cá. Phải nói là rất ấn tượng:
+Nước dùng trong, thanh ngọt, không bị bột ngọt gắt cổ. Vị ngọt tự nhiên từ cá …",2025-11-30T08:42:22Z
+11159,53,351,5,"Tô bún ngonn, giá rẻ. Nhà tuy k gần lắm nhưng mỗi lần thèm bún sứa đều chạy qua đây ăn 🤣 …",2025-11-30T08:42:22Z
+11160,14,351,5,"Ngon, rẻ, nhưng giống Nha Trang thì không hẳn vì bánh canh Nha Trang không có ăn với bắp cải á. Quán lúc nào cũng đông hết, ngồi hơi nóng một tẹo.",2025-11-30T08:42:22Z
+11161,42,351,4,"Đồ ăn: ngon, vừa vị, rau được rửa sạch sẽ, cá và sứa tươi rói, sứa to núc ních.
+
+Bàn ghế, chén đũa muỗng: sạch sẽ vừa phải. …",2025-11-30T08:42:22Z
+11162,10,351,3,"Mình ăn tiệm này lâu rồi. Mình biết mấy anh em nhà này, Người anh trai bán ngon hơn. Mở từ trước dịch Covid lận. Ăn từ hồi 2019-2020 á, lúc đó giá chỉ có 20-22k/ tô thôi.. Giờ mình ăn thì thấy cũng ok nhưng nêm mặn & nhiều bột ngọt. Nên …",2025-11-30T08:42:22Z
+11163,42,351,5,"Bạn mình biết quán ăn ngon nên dẫn mình đến ăn thử. Quán nằm gần Highland xíu, không gian nhỏ có mấy bàn thôi. Chỗ đậu xe ngay quán luôn mà diện tích nhỏ ý. Sạch sẽ, nhân viên nhiệt tình, dễ thương. Bún sứa tươi ngon, giòn, nước chấm ngon, …",2025-11-30T08:42:22Z
+11164,14,352,5,"Thèm bún chả nên vào ăn đại, gặp đúng quán ngon, chuẩn vị Hà Nội 💕 …",2025-11-30T08:42:22Z
+11165,61,352,5,"Ngon, anh chủ thân thiện",2025-11-30T08:42:22Z
+11166,87,352,5,Ngon đúng vị bắc,2025-11-30T08:42:22Z
+11167,92,352,5,"Ngon quá!
+Lecker! Ngon quá!",2025-11-30T08:42:22Z
+11168,9,352,5,Cảm ơn anh! Mong a tiep tuc ung hộ quán ,2025-11-30T08:42:22Z
+11169,10,353,5,"Có thể là một trong những quán Bún Chả ngon nhất mà mình từng ăn nha.
+Thịt và Chả sẽ được để riêng với chén nước dùng nên thịt không bị bã ra và mất vị như những nơi khác. …",2025-11-30T08:42:22Z
+11170,19,353,5,"Đoạn q6 không nhiều quán bún chả lắm nên mk cũng mày mò đi lân cận coi sao. Mà ưng lắm. Quán nhỏ nhỏ thôi nhưng phục vụ 10đ. Bày biện đẹp mắt, nước chấm ngon, thịt nướng đậm đà. Tỉ lệ mỡ, thịt đều ăn không bị ngán, free trà đá. Nem cua bể …",2025-11-30T08:42:22Z
+11171,82,353,5,"Quán bún chả mà mình thấy oke nhất từ trước tới giờ. Vị ăn vừa phải, trang trí đơn giản nhưng đẹp, sạch sẽ, gọn gàng. 1 phần ăn đủ nhiều để no, thịt ướp ngon, tươi, không quá nồng gia vị. Quán nhỏ thôi, có máy lạnh. Nhân viên thân thiện. Chỉ có cái hơi ám mùi thôi chứ còn lại oke lắm. Sẽ quay lại",2025-11-30T08:42:22Z
+11172,11,353,5,"Quán nhỏ ấm cúng, trang trí đẹp, nhân viên nhiệt tình, dễ thương. Mình k kêu nước uống nhưng vẫn đc các bạn ấy đãi trà đá - mình đánh giá cao việc này nha.",2025-11-30T08:42:22Z
+11173,12,353,3,"Quán decor ấm cúng, menu ít món nhưng dễ chọn, có hình minh hoạ.
+1 phần 60k-80k giá hơi cao so vs chỗ khác, nhân viên m thấy chỉ có 2ng, 1ng vừa đứng thu ngân vừa làm đồ ăn, 1ng bên ngoài nướng thịt. …",2025-11-30T08:42:22Z
+11174,43,354,4,"Qua có menu tương đối đa dạng, giá cả không quá cao và phù hợp với vị trí kinh doanh.
+1 điểm trừ cho quán là mình kêu 2 phần bún nem ra mà đem ra có 1.5 phần kêu đang …",2025-11-30T08:42:22Z
+11175,85,354,2,"Không gian quán sạch sẽ, Nhân viên phục vụ nhanh. Nhưng nước mắm ăn thì không ngon cho lắm và ít Bún, Chả. Bù lại Thịt chả khá tươi mềm gia vị nêm vừa, thơm. Rau ăn kèm thì “tạm” chấp nhận được. Giá là 60k/1Phần, đối với mức giá này thì theo mình nên ăn trải nghiệm quán khác.",2025-11-30T08:42:22Z
+11176,76,354,5,Ngon xỉu,2025-11-30T08:42:22Z
+11177,67,354,3,Tạm được. Giá cao,2025-11-30T08:42:22Z
+11178,39,354,5,Thực phẩm HALAL được khuyến nghị,2025-11-30T08:42:22Z
+11179,49,355,5,"một chiến quán bún chạ ngon cần được biết đến nhiều hơn. Quán mới mở nên còn vắng, nhưng mà chất lượng thì 💯 (xem ảnh cuối, ăn sạch sành sanh)
++ chuẩn vị HN, nước mắm vừa ăn có độ chua nhẹ ko cần thêm quất …",2025-11-30T08:42:22Z
+11180,78,355,4,"Bún chả ngon, vừa ăn, chất lượng. Không gian quán sạch sẽ, có phong cách, chỗ ngồi không được thoải mái lắm do bàn hơi thấp so với ghế. Phục vụ tạm, không quá chuyên nghiệp.",2025-11-30T08:42:22Z
+11181,98,355,5,"Phần 65k thịt vs chả nhiều và ngon, nhìn chung là có vị thơm đậm đà khác mấy chỗ mình đi ăn trước đây",2025-11-30T08:42:22Z
+11182,85,355,5,"Thề là đồ của quán ngon lắm. Chuẩn vị bắc, thịt mềm, nước dùng đỉnh nha ❤️",2025-11-30T08:42:22Z
+11183,29,355,5,"Bún chả xuất sắc, quán sạch sẽ thoáng mát. Sẽ quay lại ủng hộ quán.",2025-11-30T08:42:22Z

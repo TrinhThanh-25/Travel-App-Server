@@ -1,5 +1,5 @@
 import express from "express";
-import { getRewardById, getAllRewards, addReward, redeemReward, getEligibleCatalog, getUserInventory, useUserReward, getUserTransactions } from "../controllers/rewardController.js";
+import { getRewardById, getAllRewards, addReward, redeemReward, getEligibleCatalog, getUserInventory, useUserReward, getUserTransactions, getUserVoucherCode } from "../controllers/rewardController.js";
 const router = express.Router();
 
 // Order: static and multi-segment routes first to avoid :id capturing them
@@ -7,6 +7,7 @@ router.get("/", getAllRewards);
 router.get("/catalog", getEligibleCatalog);
 router.get("/user/:userId/inventory", getUserInventory);
 router.get("/user/:userId/transactions", getUserTransactions);
+router.get("/user/:userId/voucher/:userRewardId", getUserVoucherCode);
 router.get("/:id", getRewardById);
 router.post("/", addReward);
 router.post("/redeem", redeemReward);
