@@ -26,13 +26,4 @@ export const listTransactionsForUser = (req, res) => {
   });
 };
 
-export const getMyPoints = (req, res) => {
-  const userId = req.user && req.user.id;
-  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
-  db.get(`SELECT COALESCE(total_point,0) as total_point FROM users WHERE id = ?`, [userId], (err, row) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.json({ total_point: (row && row.total_point) || 0 });
-  });
-};
-
 export default { addTransaction, listTransactionsForUser, getMyPoints };

@@ -155,23 +155,6 @@ export const getRewardById = (req, res) => {
 
 // Removed getRewardsForLocation and linkRewardToLocations: rewards are only linked to challenges.
 
-// List a user's reward inventory (vouchers) with reward details
-export const getUserInventory = (req, res) => {
-  const userId = req.params.userId;
-  const sql = `
-    SELECT ur.id as user_reward_id, ur.code, ur.status, ur.obtained_at, ur.expires_at,
-           r.id as reward_id, r.name, r.description, r.percent, r.cost
-    FROM user_reward ur
-    INNER JOIN rewards r ON ur.reward_id = r.id
-    WHERE ur.user_id = ?
-    ORDER BY ur.obtained_at DESC
-  `;
-  db.all(sql, [userId], (err, rows) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.json(rows);
-  });
-};
-
 // Mark a user reward as used/redeemed
 export const useUserReward = (req, res) => {
   const userRewardId = req.params.userRewardId;

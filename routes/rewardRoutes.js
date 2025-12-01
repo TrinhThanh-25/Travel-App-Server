@@ -6,7 +6,6 @@ const router = express.Router();
 // Order: static and multi-segment routes first to avoid :id capturing them
 router.get("/", getAllRewards);
 router.get("/catalog", getEligibleCatalog);
-router.get("/user/:userId/inventory", getUserInventory);
 router.get("/user/:userId/transactions", getUserTransactions);
 router.get("/user/:userId/voucher/:userRewardId", getUserVoucherCode);
 router.get("/:id", getRewardById);

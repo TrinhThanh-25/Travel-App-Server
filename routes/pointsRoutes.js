@@ -10,6 +10,5 @@ const txSchema = Joi.object({ points: Joi.number().required(), type: Joi.string(
 
 router.post('/transactions', authenticateJWT, validateSchema(txSchema), addTransaction);
 router.get('/transactions', authenticateJWT, listTransactionsForUser);
-router.get('/me', authenticateJWT, getMyPoints);
 
 export default router;
