@@ -203,6 +203,61 @@ export const getUserVoucherCode = (req, res) => {
   });
 };
 
+// Redeem a voucher by its code: check ownership, validity, mark used and remove from inventory
+export const useUserRewardByCode = (req, res) => {
+  const bodyUserId = req.body && req.body.user_id;
+  const authUserId = req.user && req.user.id;
+  const user_id = authUserId || bodyUserId;
+  const { code } = req.body || {};
+  if (!user_id || !code) return res.status(400).json({ error: 'user_id and code required' });
+  if (authUserId && bodyUserId && String(authUserId) !== String(bodyUserId)) {
+    return res.status(403).json({ error: 'Authenticated user does not match provided user_id' });
+  }
+
+  db.get(`SELECT * FROM user_reward WHERE user_id = ? AND code = ?`, [user_id, String(code).trim()], (err, row) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (!row) return res.status(404).json({ error: 'Voucher not found for this user' });
+    if (row.status === 'used') return res.status(400).json({ message: 'Voucher already used' });
+    if (row.expires_at && new Date(row.expires_at) < new Date()) return res.status(400).json({ message: 'Voucher expired' });
+
+    db.serialize(() => {
+      db.run('BEGIN TRANSACTION');
+
+      // Mark used for audit trail
+      db.run(`UPDATE user_reward SET status = 'used', used_at = datetime('now') WHERE id = ?`, [row.id], function (uErr) {
+        if (uErr) {
+          db.run('ROLLBACK');
+          return res.status(500).json({ error: uErr.message });
+        }
+
+        // Log redemption activity
+        db.run(`INSERT INTO user_activity (user_id, type, meta_json) VALUES (?,?,?)`, [user_id, 'reward_redeemed', JSON.stringify({ user_reward_id: row.id, code: row.code, reward_id: row.reward_id })], function (aErr) {
+          if (aErr) {
+            db.run('ROLLBACK');
+            return res.status(500).json({ error: aErr.message });
+          }
+
+          // Remove voucher from inventory as requested
+          db.run(`DELETE FROM user_reward WHERE id = ?`, [row.id], function (dErr) {
+            if (dErr) {
+              db.run('ROLLBACK');
+              return res.status(500).json({ error: dErr.message });
+            }
+
+            db.run('COMMIT', (cErr) => {
+              if (cErr) {
+                db.run('ROLLBACK');
+                return res.status(500).json({ error: cErr.message });
+              }
+              res.json({ message: 'Voucher used and removed', code: row.code });
+            });
+          });
+        });
+      });
+    });
+  });
+};
+
 // Get user's points transaction history
 export const getUserTransactions = (req, res) => {
   const userId = req.params.userId;
