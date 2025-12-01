@@ -87,7 +87,7 @@ app.use(helmet());
 // Keep it simple: very high per-IP cap and short window, still prevents abuse bursts.
 const limiterOptions = {
 	windowMs: 60 * 1000, // 1 minute
-	max: 10000, // allow up to 10k req/min per IP (sufficient for local dev)
+	max: 100000, // allow up to 100k req/min per IP
 	standardHeaders: true,
 	legacyHeaders: false,
 };
