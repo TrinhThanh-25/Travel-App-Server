@@ -26,4 +26,4 @@ export const listTransactionsForUser = (req, res) => {
   });
 };
 
-export default { addTransaction, listTransactionsForUser, getMyPoints };
+export default { addTransaction, listTransactionsForUser};

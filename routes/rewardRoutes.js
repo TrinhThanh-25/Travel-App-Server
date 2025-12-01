@@ -1,5 +1,5 @@
 import express from "express";
-import { getRewardById, getAllRewards, addReward, redeemReward, getEligibleCatalog, getUserInventory, useUserReward, getUserTransactions, getUserVoucherCode, useUserRewardByCode } from "../controllers/rewardController.js";
+import { getRewardById, getAllRewards, addReward, redeemReward, getEligibleCatalog, useUserReward, getUserTransactions, getUserVoucherCode, useUserRewardByCode } from "../controllers/rewardController.js";
 import { authenticateJWT } from "../middleware/auth.js";
 const router = express.Router();
 

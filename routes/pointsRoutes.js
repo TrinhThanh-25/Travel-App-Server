@@ -1,5 +1,5 @@
 import express from 'express';
-import { addTransaction, listTransactionsForUser, getMyPoints } from '../controllers/pointsController.js';
+import { addTransaction, listTransactionsForUser} from '../controllers/pointsController.js';
 import { authenticateJWT } from '../middleware/auth.js';
 import Joi from 'joi';
 import { validateSchema } from '../middleware/validate.js';
