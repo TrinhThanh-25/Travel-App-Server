@@ -74,7 +74,8 @@ db.serialize(() => {
       image_url TEXT,
       rating REAL DEFAULT 0.0,
       review_count INTEGER DEFAULT 0,
-      qr_code TEXT
+      qr_code TEXT,
+      key_highlights TEXT
     )
   `);
 
@@ -508,6 +509,7 @@ async function runMigrations() {
   await ensureColumn('locations', 'closing_hours', "TEXT");
   await ensureColumn('locations', 'rating', 'REAL DEFAULT 0.0');
   await ensureColumn('locations', 'qr_code', 'TEXT');
+  await ensureColumn('locations', 'key_highlights', 'TEXT');
 
   // (Removed tours ensureColumn migrations)
 
