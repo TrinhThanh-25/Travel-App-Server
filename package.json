@@ -24,6 +24,7 @@
     ,"auto:restart": "bash scripts/auto_restart.sh",
     "import:core-data": "node scripts/import_locations_reviews_images.js"
     ,"import:archives": "node scripts/import_archives.js"
+    ,"ratings:recompute": "node scripts/recompute_location_ratings.js"
     ,"update:location-names": "node scripts/update_location_names_from_csv.js"
   },
   "keywords": [],
