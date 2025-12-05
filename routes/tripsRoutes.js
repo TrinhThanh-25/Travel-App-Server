@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', listTrips);
 router.get('/:id', getTrip);
-router.post('/', createTrip);
+router.post('/', authenticateJWT, createTrip);
 router.put('/:id', updateTrip);
 router.delete('/:id', deleteTrip);
 // Favorites endpoints
