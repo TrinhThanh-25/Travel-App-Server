@@ -130,8 +130,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/usersa", userRoutes);
 // mount auth routes at /auth to match endpoints like /auth/register
 app.use("/auth", authRoutes);
-// temporary alias to match older docs that referenced /autha
-app.use("/autha", authRoutes);
 app.use("/api/rewards", rewardRoutes);
 // Mount newly added API groups
 app.use('/api/favorites', favoriteRoutes);

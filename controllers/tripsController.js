@@ -20,7 +20,9 @@ export const listTrips = (req, res) => {
   if (q) { conditions.push('(title LIKE ? OR description LIKE ? OR key_highlight LIKE ?)'); const like = `%${q}%`; params.push(like, like, like); }
   if (!Number.isNaN(minRating)) { conditions.push('COALESCE(rating,0) >= ?'); params.push(minRating); }
   if (!Number.isNaN(maxPrice)) { conditions.push('COALESCE(estimate_price,0) <= ?'); params.push(maxPrice); }
-  const where = conditions.length ? 'WHERE ' + conditions.join(' AND ') : '';
+  // Only list globally posted trips
+  conditions.unshift('t.is_post = 1');
+  const where = 'WHERE ' + conditions.join(' AND ');
   const sql = `
     SELECT t.id,t.title,t.description,t.rating,t.review_count,t.key_highlight,t.estimate_price,t.total_time,t.url_image,
            CASE WHEN uft.trip_id IS NOT NULL THEN 1 ELSE 0 END AS is_favorite
@@ -84,7 +86,26 @@ export const getTrip = (req, res) => {
 };
 
 // Not allowed for static dataset
-export const createTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip creation disabled.' });
+export const createTrip = (req, res) => {
+  const userId = req.user && Number(req.user.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  const { title, description, estimate_price, total_time, url_image, key_highlight } = req.body || {};
+  if (!title || typeof title !== 'string') return res.status(400).json({ error: 'title is required' });
+  const now = new Date().toISOString();
+  const ep = Number.isFinite(Number(estimate_price)) ? Number(estimate_price) : null;
+  const tt = Number.isFinite(Number(total_time)) ? Number(total_time) : null;
+  const stmt = `INSERT INTO trips (title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?)`;
+  const params = [title, description || null, null, 0, key_highlight || null, ep, tt, url_image || null, userId, now, 0];
+  db.run(stmt, params, function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    const id = this.lastID;
+    db.get(`SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`, [id], (gErr, row) => {
+      if (gErr) return res.status(500).json({ error: gErr.message });
+      res.status(201).json(row);
+    });
+  });
+};
 export const updateTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip update disabled.' });
 export const deleteTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip delete disabled.' });
 
