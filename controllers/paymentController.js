@@ -37,6 +37,17 @@ export const createPayment = (req, res) => {
   };
   payments.set(id, record);
 
+  // Auto-approve payment after 5 seconds (simulating payment gateway confirmation)
+  setTimeout(() => {
+    const payment = payments.get(id);
+    if (payment && payment.status === 'pending') {
+      payment.status = 'approved';
+      payment.updatedAt = new Date().toISOString();
+      payments.set(id, payment);
+      console.log(`Payment ${id} auto-approved by backend`);
+    }
+  }, 5000); // 5 second delay
+
   // Return the payment request so client can poll or show status
   return res.status(201).json({ success: true, data: record });
 };
