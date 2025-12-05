@@ -128,11 +128,7 @@ db.serialize(() => {
       key_highlight TEXT,
       estimate_price INTEGER,
       total_time INTEGER,
-        url_image TEXT,
-        review_count INTEGER DEFAULT 0,
-        user_id INTEGER,
-        created_at TEXT,
-        is_post INTEGER DEFAULT 0
+      url_image TEXT
     )
   `);
 
@@ -404,17 +400,6 @@ db.serialize(() => {
     )
   `);
 
-  // Trip images table
-  db.run(`
-    CREATE TABLE IF NOT EXISTS trip_images (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      trip_id INTEGER NOT NULL,
-      url TEXT NOT NULL,
-      sort_order INTEGER DEFAULT 0,
-      FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE
-    )
-  `);
-
   // (Removed legacy tour_reviews table)
 
   // Filters feature removed: drop legacy tables if they still exist
@@ -609,10 +594,6 @@ async function runMigrations() {
   await ensureColumn('trips', 'estimate_price', 'INTEGER');
   await ensureColumn('trips', 'total_time', 'INTEGER');
   await ensureColumn('trips', 'url_image', 'TEXT');
-    await ensureColumn('trips', 'review_count', 'INTEGER DEFAULT 0');
-    await ensureColumn('trips', 'user_id', 'INTEGER');
-    await ensureColumn('trips', 'created_at', 'TEXT');
-    await ensureColumn('trips', 'is_post', 'INTEGER DEFAULT 0');
 
   // tripsLocation: ensure columns (composite PK created in table DDL already)
   await ensureColumn('tripsLocation', 'order_index', 'INTEGER');
