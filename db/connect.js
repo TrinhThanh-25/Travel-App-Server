@@ -141,6 +141,8 @@ db.serialize(() => {
       trip_id INTEGER NOT NULL,
       location_id INTEGER NOT NULL,
       order_index INTEGER,
+      day INTEGER,
+      time TEXT,
       PRIMARY KEY (trip_id, location_id),
       FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE,
       FOREIGN KEY (location_id) REFERENCES locations(id) ON DELETE CASCADE
@@ -616,6 +618,8 @@ async function runMigrations() {
 
   // tripsLocation: ensure columns (composite PK created in table DDL already)
   await ensureColumn('tripsLocation', 'order_index', 'INTEGER');
+  await ensureColumn('tripsLocation', 'day', 'INTEGER');
+  await ensureColumn('tripsLocation', 'time', 'TEXT');
 
   console.log('Lightweight migrations finished (if any).');
 
