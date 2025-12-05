@@ -74,6 +74,9 @@ const tripReviewRoutes = tripReviewRoutesModule.default;
 const pointsRoutes = pointsRoutesModule.default;
 const tripsRoutes = tripsRoutesModule.default;
 const tripsLocationRoutes = tripsLocationRoutesModule.default;
+// dynamic import for payments
+const paymentRoutesModule = await import('./routes/paymentRoutes.js');
+const paymentRoutes = paymentRoutesModule.default;
 
 const app = express();
 // limit request body size to avoid large payload attacks
@@ -144,6 +147,8 @@ app.use("/api/trip-reviews", tripReviewRoutes);
 app.use("/api/points", pointsRoutes);
 app.use("/api/trips", tripsRoutes);
 app.use("/api/trips-location", tripsLocationRoutes);
+// payments endpoints
+app.use('/api/payments', paymentRoutes);
 
 // lightweight API root/status endpoint so visiting /api returns useful info
 app.get('/api', (req, res) => {
@@ -164,6 +169,7 @@ app.get('/api', (req, res) => {
 			'/api/motorbikes',
 			'/api/shops',
 			'/api/rentals',
+			'/api/payments',
 			'/auth/register',
 			'/auth/login',
 			'/auth/me',
