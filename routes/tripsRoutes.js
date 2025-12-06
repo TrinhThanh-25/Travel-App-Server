@@ -7,11 +7,11 @@ const router = express.Router();
 router.get('/', listTrips);
 router.get('/:id', getTrip);
 router.post('/', authenticateJWT, createTrip);
-router.put('/:id', updateTrip);
-router.delete('/:id', deleteTrip);
+router.put('/:id',authenticateJWT, updateTrip);
+router.delete('/:id',authenticateJWT, deleteTrip);
 // Favorites endpoints
 router.get('/me/favorites', authenticateJWT, getFavoriteTrips);
-router.post('/:id/favorite', addFavoriteTrip);
-router.delete('/:id/favorite', removeFavoriteTrip);
+router.post('/:id/favorite',authenticateJWT, addFavoriteTrip);
+router.delete('/:id/favorite',authenticateJWT, removeFavoriteTrip);
 
 export default router;
