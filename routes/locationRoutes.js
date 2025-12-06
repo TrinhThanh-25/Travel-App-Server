@@ -4,11 +4,11 @@ import { authenticateJWT } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get("/", getAllLocations);
+router.get("/", authenticateJWT, getAllLocations);
 // Nearby search must come before the id param route
-router.get('/nearby', nearbyLocations);
-router.get("/:id", getLocationById);
-router.post("/", addLocation);
+router.get('/nearby', authenticateJWT, nearbyLocations);
+router.get("/:id", authenticateJWT, getLocationById);
+router.post("/", authenticateJWT, addLocation);
 // Return authenticated user's favorite locations
 router.get("/me/favorites", authenticateJWT, getFavoriteLocations);
 router.post("/:id/favorite", authenticateJWT, addFavoriteLocation);
