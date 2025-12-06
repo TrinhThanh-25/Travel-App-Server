@@ -4,7 +4,7 @@ import { authenticateJWT } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get("/", authenticateJWT, getAllLocations);
+router.get("/", getAllLocations);
 // Nearby search must come before the id param route
 router.get('/nearby', authenticateJWT, nearbyLocations);
 router.get("/:id", authenticateJWT, getLocationById);
