@@ -11,7 +11,7 @@ router.get("/:id", getLocationById);
 router.post("/", addLocation);
 // Return authenticated user's favorite locations
 router.get("/me/favorites", authenticateJWT, getFavoriteLocations);
-router.post("/:id/favorite", addFavoriteLocation);
-router.delete("/:id/favorite", removeFavoriteLocation);
+router.post("/:id/favorite", authenticateJWT, addFavoriteLocation);
+router.delete("/:id/favorite", authenticateJWT, removeFavoriteLocation);
 
 export default router;
