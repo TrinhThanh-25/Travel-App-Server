@@ -9,7 +9,8 @@ export const listTripLocations = (req, res) => {
   const conditions = [];
   if (tripId) { conditions.push('tl.trip_id = ?'); params.push(tripId); }
   const where = conditions.length ? 'WHERE ' + conditions.join(' AND ') : '';
-  const sql = `SELECT tl.trip_id, tl.location_id, tl.order_index, l.name, l.category, l.type, l.price, l.latitude, l.longitude, l.address, l.image_url
+  const sql = `SELECT tl.trip_id, tl.location_id, tl.order_index, tl.day, tl.time,
+                      l.name, l.category, l.type, l.price, l.latitude, l.longitude, l.address, l.image_url
                FROM tripsLocation tl JOIN locations l ON tl.location_id = l.id
                ${where}
                ORDER BY tl.trip_id, COALESCE(tl.order_index, 9999), tl.location_id
@@ -22,6 +23,8 @@ export const listTripLocations = (req, res) => {
       location_id: r.location_id,
       order: r.order_index,
       order_index: r.order_index,
+      day: r.day,
+      time: r.time,
       name: r.name,
       category: r.category,
       type: r.type,

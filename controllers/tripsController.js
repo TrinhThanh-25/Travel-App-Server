@@ -43,7 +43,7 @@ export const listTrips = (req, res) => {
   });
 };
 
-// Get a single trip with ordered locations
+// Get a single trip with ordered locations (including day/time) and images
 export const getTrip = (req, res) => {
   const id = parseInt(req.params.id);
   if (!id) return res.status(400).json({ error: 'Invalid trip id' });
@@ -56,7 +56,8 @@ export const getTrip = (req, res) => {
   db.get(tripSql, [userId, id], (err, trip) => {
     if (err) return res.status(500).json({ error: err.message });
     if (!trip) return res.status(404).json({ error: 'Trip not found' });
-  const locSql = `SELECT tl.location_id, tl.order_index, l.name, l.category, l.type, l.price, l.description, l.latitude, l.longitude, l.address, l.image_url, l.rating, l.review_count
+    const locSql = `SELECT tl.location_id, tl.order_index, tl.day, tl.time,
+                           l.name, l.category, l.type, l.price, l.description, l.latitude, l.longitude, l.address, l.image_url, l.rating, l.review_count
                     FROM tripsLocation tl JOIN locations l ON tl.location_id = l.id
                     WHERE tl.trip_id = ? ORDER BY COALESCE(tl.order_index, 9999), tl.location_id`;
     db.all(locSql, [id], (lErr, rows) => {
@@ -68,6 +69,8 @@ export const getTrip = (req, res) => {
         id: r.location_id,
         order: r.order_index,
         order_index: r.order_index,
+        day: r.day,
+        time: r.time,
         name: r.name,
         category: r.category,
         type: r.type,
@@ -80,7 +83,20 @@ export const getTrip = (req, res) => {
         rating: r.rating,
         review_count: r.review_count
       }));
-      res.json(trip);
+
+      // Load trip-level images ordered by sort_order
+      db.all(
+        `SELECT url, sort_order FROM trip_images WHERE trip_id = ? ORDER BY sort_order, id`,
+        [id],
+        (imgErr, imgs) => {
+          if (imgErr) {
+            console.error('Trip images query failed:', imgErr.message);
+            return res.status(500).json({ error: imgErr.message });
+          }
+          trip.images = imgs || [];
+          res.json(trip);
+        }
+      );
     });
   });
 };

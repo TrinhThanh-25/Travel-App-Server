@@ -128,11 +128,11 @@ db.serialize(() => {
       key_highlight TEXT,
       estimate_price INTEGER,
       total_time INTEGER,
-        url_image TEXT,
-        review_count INTEGER DEFAULT 0,
-        user_id INTEGER,
-        created_at TEXT,
-        is_post INTEGER DEFAULT 0
+      url_image TEXT,
+      review_count INTEGER DEFAULT 0,
+      user_id INTEGER,
+      created_at TEXT,
+      is_post INTEGER DEFAULT 0
     )
   `);
 
