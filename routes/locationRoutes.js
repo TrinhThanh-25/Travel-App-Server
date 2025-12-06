@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.get("/", getAllLocations);
 // Nearby search must come before the id param route
-router.get('/nearby', authenticateJWT, nearbyLocations);
-router.get("/:id", authenticateJWT, getLocationById);
-router.post("/", authenticateJWT, addLocation);
+router.get('/nearby', nearbyLocations);
+router.get("/:id", getLocationById);
+router.post("/", addLocation);
 // Return authenticated user's favorite locations
 router.get("/me/favorites", authenticateJWT, getFavoriteLocations);
 router.post("/:id/favorite", authenticateJWT, addFavoriteLocation);
