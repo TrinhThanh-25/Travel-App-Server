@@ -4,18 +4,23 @@ import { authenticateJWT } from '../middleware/auth.js';
 
 const router = express.Router();
 
+// Public trip listing
 router.get('/', listTrips);
-router.get('/:id', getTrip);
-router.post('/', authenticateJWT, createTrip);
-router.put('/:id',authenticateJWT, updateTrip);
-router.delete('/:id',authenticateJWT, deleteTrip);
-// Publish / unpublish a user's own trip
-router.post('/:id/publish', authenticateJWT, publishTrip);
-router.post('/:id/unpublish', authenticateJWT, unpublishTrip);
-// Favorites endpoints
+
+// User-scoped trip listing and favorites (define before :id)
 router.get('/me', authenticateJWT, getUserTrip);
 router.get('/me/favorites', authenticateJWT, getFavoriteTrips);
-router.post('/:id/favorite',authenticateJWT, addFavoriteTrip);
-router.delete('/:id/favorite',authenticateJWT, removeFavoriteTrip);
+
+// Trip favorites by id
+router.post('/:id/favorite', authenticateJWT, addFavoriteTrip);
+router.delete('/:id/favorite', authenticateJWT, removeFavoriteTrip);
+
+// Trip CRUD and publish/unpublish by id
+router.get('/:id', getTrip);
+router.post('/', authenticateJWT, createTrip);
+router.put('/:id', authenticateJWT, updateTrip);
+router.delete('/:id', authenticateJWT, deleteTrip);
+router.post('/:id/publish', authenticateJWT, publishTrip);
+router.post('/:id/unpublish', authenticateJWT, unpublishTrip);
 
 export default router;
