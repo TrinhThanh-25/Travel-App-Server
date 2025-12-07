@@ -65,7 +65,7 @@ export const getTrip = (req, res) => {
         console.error('Trip locations query failed:', lErr.message);
         return res.status(500).json({ error: lErr.message });
       }
-      trip.locations = rows.map(r => ({
+      const locations = rows.map(r => ({
         id: r.location_id,
         order: r.order_index,
         order_index: r.order_index,
@@ -84,6 +84,16 @@ export const getTrip = (req, res) => {
         review_count: r.review_count
       }));
 
+      trip.locations = locations;
+
+      const itineraryByDay = {};
+      locations.forEach(loc => {
+        const key = loc.day == null ? 'null' : String(loc.day);
+        if (!itineraryByDay[key]) itineraryByDay[key] = [];
+        itineraryByDay[key].push(loc);
+      });
+      trip.itinerary_by_day = itineraryByDay;
+
       // Load trip-level images ordered by sort_order
       db.all(
         `SELECT url, sort_order FROM trip_images WHERE trip_id = ? ORDER BY sort_order, id`,
@@ -101,11 +111,10 @@ export const getTrip = (req, res) => {
   });
 };
 
-// Not allowed for static dataset
 export const createTrip = (req, res) => {
   const userId = req.user && Number(req.user.id);
   if (!userId) return res.status(401).json({ error: 'Unauthorized' });
-  const { title, description, estimate_price, total_time, url_image, key_highlight } = req.body || {};
+  const { title, description, estimate_price, total_time, url_image, key_highlight, locations } = req.body || {};
   if (!title || typeof title !== 'string') return res.status(400).json({ error: 'title is required' });
   const now = new Date().toISOString();
   const ep = Number.isFinite(Number(estimate_price)) ? Number(estimate_price) : null;
@@ -113,17 +122,218 @@ export const createTrip = (req, res) => {
   const stmt = `INSERT INTO trips (title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post)
                 VALUES (?,?,?,?,?,?,?,?,?,?,?)`;
   const params = [title, description || null, null, 0, key_highlight || null, ep, tt, url_image || null, userId, now, 0];
-  db.run(stmt, params, function (err) {
-    if (err) return res.status(500).json({ error: err.message });
-    const id = this.lastID;
-    db.get(`SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`, [id], (gErr, row) => {
-      if (gErr) return res.status(500).json({ error: gErr.message });
-      res.status(201).json(row);
+  db.serialize(() => {
+    db.run('BEGIN TRANSACTION');
+    db.run(stmt, params, function (err) {
+      if (err) {
+        db.run('ROLLBACK');
+        return res.status(500).json({ error: err.message });
+      }
+      const tripId = this.lastID;
+
+      const locs = Array.isArray(locations) ? locations : [];
+      if (locs.length === 0) {
+        db.get(
+          `SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`,
+          [tripId],
+          (gErr, row) => {
+            if (gErr) {
+              db.run('ROLLBACK');
+              return res.status(500).json({ error: gErr.message });
+            }
+            db.run('COMMIT');
+            res.status(201).json(row);
+          }
+        );
+        return;
+      }
+
+      const insertLocStmt = db.prepare(
+        `INSERT INTO tripsLocation (trip_id, location_id, order_index, day, time)
+         VALUES (?,?,?,?,?)`
+      );
+
+      try {
+        locs.forEach((loc, index) => {
+          const locationId = Number(loc.location_id || loc.id);
+          if (!locationId) return; // skip invalid
+          const orderIndex = Number.isFinite(Number(loc.order_index))
+            ? Number(loc.order_index)
+            : index;
+          const day = loc.day != null && loc.day !== '' ? Number(loc.day) : null;
+          const time = loc.time != null && loc.time !== '' ? String(loc.time) : null;
+          insertLocStmt.run(tripId, locationId, orderIndex, day, time);
+        });
+      } catch (e) {
+        insertLocStmt.finalize();
+        db.run('ROLLBACK');
+        return res.status(500).json({ error: e.message || 'Failed to insert trip locations' });
+      }
+
+      insertLocStmt.finalize(err2 => {
+        if (err2) {
+          db.run('ROLLBACK');
+          return res.status(500).json({ error: err2.message });
+        }
+        db.get(
+          `SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`,
+          [tripId],
+          (gErr, row) => {
+            if (gErr) {
+              db.run('ROLLBACK');
+              return res.status(500).json({ error: gErr.message });
+            }
+            db.run('COMMIT');
+            res.status(201).json(row);
+          }
+        );
+      });
     });
   });
 };
-export const updateTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip update disabled.' });
-export const deleteTrip = (req, res) => res.status(405).json({ error: 'Static dataset. Trip delete disabled.' });
+export const updateTrip = (req, res) => {
+  const userId = req.user && Number(req.user.id);
+  const id = Number(req.params.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  if (!id) return res.status(400).json({ error: 'Invalid trip id' });
+
+  const { title, description, estimate_price, total_time, url_image, key_highlight, is_post, locations } = req.body || {};
+
+  db.serialize(() => {
+    db.run('BEGIN TRANSACTION');
+    const fields = [];
+    const params = [];
+
+    if (typeof title === 'string') { fields.push('title = ?'); params.push(title); }
+    if (typeof description !== 'undefined') { fields.push('description = ?'); params.push(description || null); }
+    if (typeof estimate_price !== 'undefined') {
+      const ep = Number.isFinite(Number(estimate_price)) ? Number(estimate_price) : null;
+      fields.push('estimate_price = ?');
+      params.push(ep);
+    }
+    if (typeof total_time !== 'undefined') {
+      const tt = Number.isFinite(Number(total_time)) ? Number(total_time) : null;
+      fields.push('total_time = ?');
+      params.push(tt);
+    }
+    if (typeof url_image !== 'undefined') { fields.push('url_image = ?'); params.push(url_image || null); }
+    if (typeof key_highlight !== 'undefined') { fields.push('key_highlight = ?'); params.push(key_highlight || null); }
+    if (typeof is_post !== 'undefined') { fields.push('is_post = ?'); params.push(is_post ? 1 : 0); }
+
+    if (fields.length === 0) {
+      db.run('ROLLBACK');
+      return res.status(400).json({ error: 'No fields to update' });
+    }
+
+    params.push(id, userId);
+    const sql = `UPDATE trips SET ${fields.join(', ')} WHERE id = ? AND user_id = ?`;
+    db.run(sql, params, function (err) {
+      if (err) {
+        db.run('ROLLBACK');
+        return res.status(500).json({ error: err.message });
+      }
+      if (this.changes === 0) {
+        db.run('ROLLBACK');
+        return res.status(404).json({ error: 'Trip not found or not owned by user' });
+      }
+
+      const locs = Array.isArray(locations) ? locations : null;
+      if (!locs) {
+        db.get(
+          `SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`,
+          [id],
+          (gErr, row) => {
+            if (gErr) {
+              db.run('ROLLBACK');
+              return res.status(500).json({ error: gErr.message });
+            }
+            db.run('COMMIT');
+            res.json(row);
+          }
+        );
+        return;
+      }
+
+      db.run(`DELETE FROM tripsLocation WHERE trip_id = ?`, [id], delErr => {
+        if (delErr) {
+          db.run('ROLLBACK');
+          return res.status(500).json({ error: delErr.message });
+        }
+
+        if (locs.length === 0) {
+          db.get(
+            `SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`,
+            [id],
+            (gErr, row) => {
+              if (gErr) {
+                db.run('ROLLBACK');
+                return res.status(500).json({ error: gErr.message });
+              }
+              db.run('COMMIT');
+              res.json(row);
+            }
+          );
+          return;
+        }
+
+        const insertLocStmt = db.prepare(
+          `INSERT INTO tripsLocation (trip_id, location_id, order_index, day, time)
+           VALUES (?,?,?,?,?)`
+        );
+
+        try {
+          locs.forEach((loc, index) => {
+            const locationId = Number(loc.location_id || loc.id);
+            if (!locationId) return; // skip invalid
+            const orderIndex = Number.isFinite(Number(loc.order_index))
+              ? Number(loc.order_index)
+              : index;
+            const day = loc.day != null && loc.day !== '' ? Number(loc.day) : null;
+            const time = loc.time != null && loc.time !== '' ? String(loc.time) : null;
+            insertLocStmt.run(id, locationId, orderIndex, day, time);
+          });
+        } catch (e) {
+          insertLocStmt.finalize();
+          db.run('ROLLBACK');
+          return res.status(500).json({ error: e.message || 'Failed to insert trip locations' });
+        }
+
+        insertLocStmt.finalize(err2 => {
+          if (err2) {
+            db.run('ROLLBACK');
+            return res.status(500).json({ error: err2.message });
+          }
+          db.get(
+            `SELECT id, title, description, rating, review_count, key_highlight, estimate_price, total_time, url_image, user_id, created_at, is_post FROM trips WHERE id = ?`,
+            [id],
+            (gErr, row) => {
+              if (gErr) {
+                db.run('ROLLBACK');
+                return res.status(500).json({ error: gErr.message });
+              }
+              db.run('COMMIT');
+              res.json(row);
+            }
+          );
+        });
+      });
+    });
+  });
+};
+
+export const deleteTrip = (req, res) => {
+  const userId = req.user && Number(req.user.id);
+  const id = Number(req.params.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  if (!id) return res.status(400).json({ error: 'Invalid trip id' });
+
+  const sql = `DELETE FROM trips WHERE id = ? AND user_id = ?`;
+  db.run(sql, [id, userId], function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0) return res.status(404).json({ error: 'Trip not found or not owned by user' });
+    res.json({ message: '✅ Trip deleted' });
+  });
+};
 
 // Favorites for trips
 export const getFavoriteTrips = (req, res) => {
