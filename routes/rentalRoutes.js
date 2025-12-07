@@ -4,16 +4,16 @@ import { authenticateJWT } from '../middleware/auth.js'
 
 const router = express.Router()
 
-// create rental
-router.post('/', authenticateJWT, createRental)
+// list open rentals for a user (more specific path)
+router.get('/open', listUserOpenRentals)
 
 // find rental(s) by bikeId/userEmail/isReturned
 router.get('/', findRental)
 
-// update rental
-router.patch('/:id', authenticateJWT, patchRental)
+// create rental
+router.post('/', authenticateJWT, createRental)
 
-// list open rentals for a user
-router.get('/open', listUserOpenRentals)
+// update rental by id
+router.patch('/:id', authenticateJWT, patchRental)
 
 export default router
