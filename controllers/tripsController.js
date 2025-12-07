@@ -335,6 +335,24 @@ export const deleteTrip = (req, res) => {
   });
 };
 
+// Get all trips owned by the authenticated user (including basic fields)
+export const getUserTrip = (req, res) => {
+  const userId = req.user && Number(req.user.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+
+  const sql = `
+    SELECT id, title, description, rating, review_count, key_highlight,
+           estimate_price, total_time, url_image, user_id, created_at, is_post
+    FROM trips
+    WHERE user_id = ?
+    ORDER BY created_at DESC, id DESC`;
+
+  db.all(sql, [userId], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows);
+  });
+};
+
 // Favorites for trips
 export const getFavoriteTrips = (req, res) => {
   const userId = req.user && req.user.id;
@@ -374,5 +392,34 @@ export const removeFavoriteTrip = (req, res) => {
     res.json({ message: '✅ Trip removed from favorites' });
   });
 };
+// Publish (post) a trip: set is_post = 1 if owned by user
+export const publishTrip = (req, res) => {
+  const userId = req.user && Number(req.user.id);
+  const id = Number(req.params.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  if (!id) return res.status(400).json({ error: 'Invalid trip id' });
 
-export default { listTrips, getTrip, createTrip, updateTrip, deleteTrip, getFavoriteTrips, addFavoriteTrip, removeFavoriteTrip };
+  const sql = `UPDATE trips SET is_post = 1 WHERE id = ? AND user_id = ?`;
+  db.run(sql, [id, userId], function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0) return res.status(404).json({ error: 'Trip not found or not owned by user' });
+    res.json({ message: '✅ Trip published', trip_id: id, is_post: 1 });
+  });
+};
+
+// Unpublish (revoke) a trip: set is_post = 0 if owned by user
+export const unpublishTrip = (req, res) => {
+  const userId = req.user && Number(req.user.id);
+  const id = Number(req.params.id);
+  if (!userId) return res.status(401).json({ error: 'Unauthorized' });
+  if (!id) return res.status(400).json({ error: 'Invalid trip id' });
+
+  const sql = `UPDATE trips SET is_post = 0 WHERE id = ? AND user_id = ?`;
+  db.run(sql, [id, userId], function (err) {
+    if (err) return res.status(500).json({ error: err.message });
+    if (this.changes === 0) return res.status(404).json({ error: 'Trip not found or not owned by user' });
+    res.json({ message: '✅ Trip unpublished', trip_id: id, is_post: 0 });
+  });
+};
+
+export default { listTrips, getTrip, createTrip, updateTrip, deleteTrip, getUserTrip, getFavoriteTrips, addFavoriteTrip, removeFavoriteTrip, publishTrip, unpublishTrip };
