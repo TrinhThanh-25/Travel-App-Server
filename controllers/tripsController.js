@@ -376,7 +376,7 @@ export const addFavoriteTrip = (req, res) => {
   if (!tripId) return res.status(400).json({ error: 'Invalid trip id' });
   db.run(`INSERT OR IGNORE INTO user_favorite_trips (user_id, trip_id) VALUES (?, ?)`, [userId, tripId], function (err) {
     if (err) return res.status(500).json({ error: err.message });
-    if (this.changes === 0) return res.status(400).json({ message: '❌ Trip already in favorites' });
+    if (this.changes === 0) return res.status(200).json({ message: '❌ Trip already in favorites' });
     res.json({ message: '✅ Trip added to favorites' });
   });
 };
@@ -388,7 +388,7 @@ export const removeFavoriteTrip = (req, res) => {
   if (!tripId) return res.status(400).json({ error: 'Invalid trip id' });
   db.run(`DELETE FROM user_favorite_trips WHERE user_id = ? AND trip_id = ?`, [userId, tripId], function (err) {
     if (err) return res.status(500).json({ error: err.message });
-    if (this.changes === 0) return res.status(400).json({ message: '❌ Trip not in favorites' });
+    if (this.changes === 0) return res.status(200).json({ message: '❌ Trip not in favorites' });
     res.json({ message: '✅ Trip removed from favorites' });
   });
 };

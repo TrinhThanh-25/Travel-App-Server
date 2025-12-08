@@ -192,7 +192,7 @@ export const addFavoriteLocation = (req, res) => {
   db.run(`INSERT OR IGNORE INTO user_favorite_locations (user_id, location_id) VALUES (?, ?)`, [userId, locationId], function (err) {
     if (err) return res.status(500).json({ error: err.message });
     if (this.changes === 0) {
-      return res.status(400).json({ message: '❌ Location already in favorites' });
+      return res.status(200).json({ message: '❌ Location already in favorites' });
     }
     res.json({ message: '✅ Location added to favorites' });
   });
@@ -207,7 +207,7 @@ export const removeFavoriteLocation = (req, res) => {
   db.run(`DELETE FROM user_favorite_locations WHERE user_id = ? AND location_id = ?`, [userId, locationId], function (err) {
     if (err) return res.status(500).json({ error: err.message });
     if (this.changes === 0) {
-      return res.status(400).json({ message: '❌ Location not in favorites' });
+      return res.status(200).json({ message: '❌ Location not in favorites' });
     }
     res.json({ message: '✅ Location removed from favorites' });
   });
